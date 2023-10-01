@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -32,14 +33,7 @@ public class SpecFlowBindingHooks
         this._objectContainer.RegisterInstanceAs<AppConfig>(appConfig!);
 
         var playwright = await Playwright.CreateAsync();
-        var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
-        {
-            Headless = false,
-            SlowMo = 50,
-            Devtools = true,
-            Timeout = 0,
-            Args = new[] { "--start-maximized" }
-        });
+        var browser = await playwright.Chromium.LaunchAsync(appConfig.BrowserTypeLaunchOptions);
         var page = await browser.NewPageAsync();
 
         this._objectContainer.RegisterInstanceAs<IPlaywright>(playwright);
@@ -60,8 +54,10 @@ public class SpecFlowBindingHooks
     [AfterTestRun]
     static public async Task RunLivingDocReports()
     {
+        /*
         RunLivingDocReport1();
-        RunLivingDocReport2();       
+        RunLivingDocReport2();
+        */
     }
 
     static void RunLivingDocReport1()
@@ -69,7 +65,7 @@ public class SpecFlowBindingHooks
         var process = new Process();
         process.StartInfo.FileName = "livingdoc";
         process.StartInfo.Arguments = "feature-folder ./ -t ./bin/Debug/net7.0/TestExecution.json --output TestFeatureReport.html";
-        process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;                
+        process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
         process.Start();
         process.WaitForExit();
     }

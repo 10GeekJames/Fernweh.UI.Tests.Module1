@@ -19,21 +19,23 @@ namespace Fernweh.BlazorClient.UITests._Features.FernwehRoot.Counter
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "CounterTests")]
-    public partial class CounterExperienceFeature : object, Xunit.IClassFixture<CounterExperienceFeature.FixtureData>, System.IDisposable
+    [Xunit.TraitAttribute("Category", "Counter")]
+    [Xunit.TraitAttribute("Category", "Regression")]
+    public partial class CounterCanIncrementFeature : object, Xunit.IClassFixture<CounterCanIncrementFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "CounterTests"};
+                "Counter",
+                "Regression"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "Counter.Feature"
+#line 1 "Counter.CanIncrement.Feature"
 #line hidden
         
-        public CounterExperienceFeature(CounterExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CounterCanIncrementFeature(CounterCanIncrementFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -42,7 +44,7 @@ namespace Fernweh.BlazorClient.UITests._Features.FernwehRoot.Counter
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/FernwehRoot/Counter", "Counter Experience", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/FernwehRoot/Counter", "Counter Can Increment", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -95,7 +97,7 @@ namespace Fernweh.BlazorClient.UITests._Features.FernwehRoot.Counter
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="I can increment the value")]
-        [Xunit.TraitAttribute("FeatureTitle", "Counter Experience")]
+        [Xunit.TraitAttribute("FeatureTitle", "Counter Can Increment")]
         [Xunit.TraitAttribute("Description", "I can increment the value")]
         public void ICanIncrementTheValue()
         {
@@ -156,12 +158,12 @@ this.FeatureBackground();
             
             public FixtureData()
             {
-                CounterExperienceFeature.FeatureSetup();
+                CounterCanIncrementFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                CounterExperienceFeature.FeatureTearDown();
+                CounterCanIncrementFeature.FeatureTearDown();
             }
         }
     }

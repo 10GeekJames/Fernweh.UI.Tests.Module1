@@ -19,21 +19,25 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "SearchTests")]
-    public partial class SearchByISBNExperienceFeature : object, Xunit.IClassFixture<SearchByISBNExperienceFeature.FixtureData>, System.IDisposable
+    [Xunit.TraitAttribute("Category", "Search")]
+    [Xunit.TraitAttribute("Category", "BasicSearch")]
+    [Xunit.TraitAttribute("Category", "Regression")]
+    public partial class CanSearchForBooksByISBNAuthorTitleFeature : object, Xunit.IClassFixture<CanSearchForBooksByISBNAuthorTitleFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "SearchTests"};
+                "Search",
+                "BasicSearch",
+                "Regression"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "SearchByIsbn.Feature"
+#line 1 "Search.BasicSearch.Feature"
 #line hidden
         
-        public SearchByISBNExperienceFeature(SearchByISBNExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CanSearchForBooksByISBNAuthorTitleFeature(CanSearchForBooksByISBNAuthorTitleFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -42,7 +46,8 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/Search", "Search by ISBN Experience", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/Search", "Can search for books by ISBN, Author, Title", "    As a guest user\r\n    I want to be able to search for books by ISBN, Author, T" +
+                    "itle\r\n    So that I can find the book I want", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -79,13 +84,10 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
         
         public virtual void FeatureBackground()
         {
-#line 4
+#line 8
 #line hidden
-#line 5
+#line 9
     testRunner.Given("we navigate to the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 6
-    testRunner.Then("we are on the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
         }
         
@@ -94,17 +96,22 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Search for a book by ISBN number")]
-        [Xunit.TraitAttribute("FeatureTitle", "Search by ISBN Experience")]
-        [Xunit.TraitAttribute("Description", "Search for a book by ISBN number")]
-        [Xunit.TraitAttribute("Category", "SearchByIsbn")]
-        public void SearchForABookByISBNNumber()
+        [Xunit.SkippableTheoryAttribute(DisplayName="Search for books using various patterns")]
+        [Xunit.TraitAttribute("FeatureTitle", "Can search for books by ISBN, Author, Title")]
+        [Xunit.TraitAttribute("Description", "Search for books using various patterns")]
+        [Xunit.InlineDataAttribute("0-5170-9394-4", "", "", new string[0])]
+        [Xunit.InlineDataAttribute("", "Franky", "", new string[0])]
+        [Xunit.InlineDataAttribute("", "", "Book of", new string[0])]
+        [Xunit.InlineDataAttribute("", "Franky", "Book of", new string[0])]
+        public void SearchForBooksUsingVariousPatterns(string isbnValue, string authorValue, string titleValue, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "SearchByIsbn"};
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for a book by ISBN number", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+            argumentsOfScenario.Add("isbn value", isbnValue);
+            argumentsOfScenario.Add("author value", authorValue);
+            argumentsOfScenario.Add("title value", titleValue);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for books using various patterns", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -114,55 +121,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 8
 this.FeatureBackground();
-#line hidden
-#line 10
-    testRunner.Given("we search for \"0-5213-0081-9\", \"\", \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 11
-    testRunner.When("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
-    testRunner.Then("we are on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Given(string.Format("we search for \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Search for a book by invalid ISBN number")]
-        [Xunit.TraitAttribute("FeatureTitle", "Search by ISBN Experience")]
-        [Xunit.TraitAttribute("Description", "Search for a book by invalid ISBN number")]
-        [Xunit.TraitAttribute("Category", "SearchByIsbn")]
-        [Xunit.TraitAttribute("Category", "SearchByIsbnInvalid")]
-        public void SearchForABookByInvalidISBNNumber()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "SearchByIsbn",
-                    "SearchByIsbnInvalid"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for a book by invalid ISBN number", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 15
-this.ScenarioInitialize(scenarioInfo);
+#line 13
+    testRunner.And(string.Format("the search values are \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 4
-this.FeatureBackground();
-#line hidden
-#line 16
-    testRunner.Given("we search for \"0-5213\", \"\", \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 17
+#line 14
     testRunner.When("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
-    testRunner.Then("we see a search error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 15
+    testRunner.Then("we are on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -175,12 +147,12 @@ this.FeatureBackground();
             
             public FixtureData()
             {
-                SearchByISBNExperienceFeature.FeatureSetup();
+                CanSearchForBooksByISBNAuthorTitleFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                SearchByISBNExperienceFeature.FeatureTearDown();
+                CanSearchForBooksByISBNAuthorTitleFeature.FeatureTearDown();
             }
         }
     }

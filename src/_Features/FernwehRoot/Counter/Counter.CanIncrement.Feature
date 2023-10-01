@@ -1,5 +1,5 @@
-@CounterTests
-Feature: Counter Experience
+@Counter @Regression
+Feature: Counter Can Increment
 
 Background: 
     Given we navigate to the counter page

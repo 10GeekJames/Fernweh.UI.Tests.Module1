@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.FernwehHome
+namespace Fernweh.BlazorClient.UITests._Features.FernwehRoot.FernwehHome
 {
     using TechTalk.SpecFlow;
     using System;
@@ -28,7 +28,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.FernwehHome
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "FernwehHome.Feature"
+#line 1 "FernwehHome.CanNavigate.Feature"
 #line hidden
         
         public FernwehHomeExperienceFeature(FernwehHomeExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
@@ -40,7 +40,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.FernwehHome
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/FernwehHome", "FernwehHome Experience", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/FernwehRoot/FernwehHome", "FernwehHome Experience", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         

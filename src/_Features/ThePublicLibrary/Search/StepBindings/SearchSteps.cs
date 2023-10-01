@@ -14,6 +14,7 @@ public class SearchSteps : Steps
     public async Task WeNavigateToTheSearchPage()
     {
         await _searchPage.GotoAsync();
+        (await _searchPage.IsOnPageAsync()).Should().BeTrue();
     }
 
     [StepDefinition(@"we are on the search page")]
@@ -26,6 +27,13 @@ public class SearchSteps : Steps
     public async Task WeSearchFor(string isbnValue, string authorValue, string titleValue)
     {
         await _searchPage.SetValuesAsync(isbnValue, authorValue, titleValue);
+    }
+    
+    [StepDefinition(@"we auto search for ""(.*)"", ""(.*)"", ""(.*)""")]
+    public async Task WeAutoSearchFor(string isbnValue, string authorValue, string titleValue)
+    {
+        await _searchPage.SetValuesAsync(isbnValue, authorValue, titleValue);
+        await _searchPage.SubmitSearchAsync();
     }
 
     [StepDefinition(@"the search values are ""(.*)"", ""(.*)"", ""(.*)""")]
