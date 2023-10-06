@@ -18,7 +18,7 @@ public class SpecFlowBindingHooks
     public async Task SetupWebDriver()
     {
         var builder = new ConfigurationBuilder();
-        var env = Environment.GetEnvironmentVariable("env") ?? "dev";
+        var env = Environment.GetEnvironmentVariable("env") ?? "qa";
         var appConfigFile = $"./Configurations/appsettings.{env}.json";
 
         builder
