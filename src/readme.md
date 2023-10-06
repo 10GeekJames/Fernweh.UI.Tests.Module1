@@ -8,8 +8,13 @@
 dotnet tool install --global Microsoft.Playwright.CLI
 ```
 
+Install Playwright in the project
 ```text
 playwright install
+```
+
+```text
+dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 ```
 
 ## Running a specific test
@@ -32,4 +37,5 @@ reports.bat
 ```
 
 test.bat will run the tests and generate the reports in the ./Reports folder
+
 
