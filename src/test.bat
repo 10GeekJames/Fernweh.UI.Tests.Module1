@@ -1,7 +1,7 @@
 @echo off
 
 set filter=""
-set env="dev"
+set env="qa"
 
 if NOT "%1%" == "" (
     set env=%1%

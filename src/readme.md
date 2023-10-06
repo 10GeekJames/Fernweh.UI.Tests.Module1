@@ -15,15 +15,15 @@ playwright install
 ## Running a specific test
 
 ```text
-dotnet test --filter "Category=SearchTests" -e env=uat
+dotnet test --filter "Category=SearchTests" -e env=qa
 ```
 
 ## To run tests using the various batch files
 
 ```text
-test uat "Category=SearchTests"
-test qa "Category="
-test dev ""
+test uat SearchTests
+test qa
+test dev
 ```
 
 ## To run the test reports
