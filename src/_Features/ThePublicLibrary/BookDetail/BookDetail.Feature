@@ -1,1 +1,1 @@
-Feature: BookDetail Experience
+Feature: BookDetails Experience

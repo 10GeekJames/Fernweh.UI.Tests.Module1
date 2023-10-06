@@ -11,7 +11,7 @@ public class SearchPage : BasePageObject
     private readonly string _submitSearchSelector = "#search-submit";
 
     private readonly string _errorMessageSelector = "#search-error-message";
-    private readonly string _errorIsbnMessageSelector = "#IsbnSearch, .mud-input-helper-text.mud-input-error";    
+    private readonly string _errorIsbnMessageSelector = "#isbn-search, .mud-input-helper-text.mud-input-error";    
 
     private readonly static string _pagePath = "/thepubliclibrary/search";
     public SearchPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }

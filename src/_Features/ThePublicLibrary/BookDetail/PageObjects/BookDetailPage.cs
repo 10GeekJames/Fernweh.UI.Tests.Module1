@@ -1,14 +1,14 @@
 using System.Globalization;
 namespace Fernweh.BlazorClient.UITests.Features.ThePublicLibrary.BookDetail;
 
-public class BookDetailPage : BasePageObject
+public class BookDetailsPage : BasePageObject
 {
 
-    private readonly string _bookDetailValueSelector = "#bookDetail-value";
-    private readonly string _submitBookDetailSelector = "#bookDetail-submit";
+    private readonly string _bookDetailValueSelector = "#book-detail-value";
+    private readonly string _submitBookDetailSelector = "#book-detail-submit";
 
     private readonly static string _pagePath = "/bookDetail";
-    public BookDetailPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
+    public BookDetailsPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
     public async Task NavigateToAsync() => await base.GotoAsync();
 
     public async Task<string> GetBookDetailValueAsync() => await BookDetailValueLocator.TextContentAsync() ?? ""; 

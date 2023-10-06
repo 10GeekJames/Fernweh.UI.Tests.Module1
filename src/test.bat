@@ -1,9 +1,18 @@
+@echo off
+
 set filter=""
 set env="dev"
 
-IF DEFINED %1 SET env=%1
-IF DEFINED %2 SET filter=%2
+if NOT "%1%" == "" (
+    set env=%1%
+    echo Env: %env%
+)
+if NOT "%2%" == "" (
+    set filter="Category=%2%"
+    echo Filter: %filter%
+)
 
+@echo on
 dotnet test --filter %filter% -e env=%env%
 
 reports.bat

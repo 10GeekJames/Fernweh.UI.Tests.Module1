@@ -3,36 +3,35 @@ namespace Fernweh.BlazorClient.UITests.Features.ThePublicLibrary.BookDetail;
 [Binding]
 public class BookDetailSteps : Steps
 {
-    private readonly BookDetailPage _bookDetailPage;
+    private readonly BookDetailsPage _bookDetailsPage;
 
-    public BookDetailSteps(BookDetailPage bookDetailPage)
+    public BookDetailSteps(BookDetailsPage bookDetailsPage)
     {
-        _bookDetailPage = bookDetailPage;
+        _bookDetailsPage = bookDetailsPage;
     }
 
-    [StepDefinition(@"we navigate to the bookDetail page")]
-    public async Task WeNavigateToTheBookDetailPage()
+    [StepDefinition(@"we navigate to the book details page")]
+    public async Task WeNavigateToTheBookDetailsPage()
     {
-        await _bookDetailPage.GotoAsync();
+        await _bookDetailsPage.GotoAsync();
     }
 
-    [StepDefinition(@"we are on the bookDetail page")]
-    public async Task WeAreOnTheBookDetailPage()
+    [StepDefinition(@"we are on the book details page")]
+    public async Task WeAreOnTheBookDetailsPage()
     {
-        (await _bookDetailPage.IsOnPageAsync()).Should().BeTrue();
+        (await _bookDetailsPage.IsOnPageAsync()).Should().BeTrue();
     }
     
-    [StepDefinition(@"we bookDetail for (.*)")]
+    [StepDefinition(@"we book details for (.*)")]
     public async Task WeBookDetailFor(string bookDetailValue)
     {
-        await _bookDetailPage.BookDetailAsync(bookDetailValue);
+        await _bookDetailsPage.BookDetailAsync(bookDetailValue);
     }
 
-    [StepDefinition(@"the bookDetail value is (.*)")]
+    [StepDefinition(@"the book details value is (.*)")]
     public async Task TheBookDetailValueIs(string bookDetailValue)
     {
-        (await _bookDetailPage.GetBookDetailValueAsync()).Should().Be(bookDetailValue);
-    }
-    
+        (await _bookDetailsPage.GetBookDetailValueAsync()).Should().Be(bookDetailValue);
+    }  
     
 }

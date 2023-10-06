@@ -4,8 +4,8 @@ namespace Fernweh.BlazorClient.UITests.Features.ThePublicLibrary.FernwehHome;
 public class FernwehHomePage : BasePageObject
 {
 
-    private readonly string _fernwehHomeValueSelector = "#fernwehHome-value";
-    private readonly string _submitFernwehHomeSelector = "#fernwehHome-submit";
+    private readonly string _fernwehHomeValueSelector = "#fernweh-home-value";
+    private readonly string _submitFernwehHomeSelector = "#fernweh-home-submit";
 
     private readonly static string _pagePath = "/fernwehHome";
     public FernwehHomePage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
