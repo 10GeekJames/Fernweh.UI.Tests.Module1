@@ -1,9 +1,5 @@
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System.Reflection;
-
 namespace AddToMeeting.UITests.Hooks;
-
 [Binding]
 public class SpecFlowBindingHooks
 {
@@ -49,35 +45,5 @@ public class SpecFlowBindingHooks
         await browser.CloseAsync();
         var playwright = this._objectContainer.Resolve<IPlaywright>();
         playwright.Dispose();
-    }
-
-    [AfterTestRun]
-    static public async Task RunLivingDocReports()
-    {
-        /*
-        RunLivingDocReport1();
-        RunLivingDocReport2();
-        */
-    }
-
-    static void RunLivingDocReport1()
-    {
-        var process = new Process();
-        process.StartInfo.FileName = "livingdoc";
-        process.StartInfo.Arguments = "feature-folder ./ -t ./bin/Debug/net7.0/TestExecution.json --output TestFeatureReport.html";
-        process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
-        process.Start();
-        process.WaitForExit();
-    }
-    static void RunLivingDocReport2()
-    {
-        var process = new Process();
-        process.StartInfo.FileName = "livingdoc";
-        process.StartInfo.Arguments = "test-assembly ./bin/Debug/net7.0/Fernweh.BlazorClient.UITests.dll  --output TestAssemblyReport.html";
-        process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
-        process.Start();
-        process.WaitForExit();
-
-    }
-
+    }    
 }

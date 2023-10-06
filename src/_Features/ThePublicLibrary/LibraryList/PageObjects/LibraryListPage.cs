@@ -20,7 +20,7 @@ public class LibraryListPage : BasePageObject
     }
     
     public async Task<bool> IsOnPageAsync()
-    {
+    {   
         var foundSelector = await Page.WaitForSelectorAsync(_libraryListTitleSelector);
         if(foundSelector == null) return false;
 

@@ -13,6 +13,9 @@ public abstract class BasePageObject
         Page = page;        
         PagePath = pagePath;
         BasePath = $"{appConfig.TestUrl}{BasePath}";
+
+        Page.WaitForLoadStateAsync(LoadState.NetworkIdle).GetAwaiter().GetResult();       
+        
     }
 
     public async Task<string> GetTitleAsync()
