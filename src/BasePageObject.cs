@@ -24,9 +24,9 @@ public abstract class BasePageObject
         return await Page.TitleAsync();
     }
 
-    public async Task GotoAsync()
+    public async Task GotoAsync(string append = "")
     {
-        await Page.GotoAsync($"{BasePath}{PagePath}");
+        await Page.GotoAsync($"{BasePath}{PagePath}{append}");
     }
 
     public string GetURL()
