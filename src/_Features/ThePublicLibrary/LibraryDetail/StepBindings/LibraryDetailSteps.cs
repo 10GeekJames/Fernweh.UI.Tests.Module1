@@ -4,10 +4,12 @@ namespace Fernweh.BlazorClient.UITests.Features.ThePublicLibrary.LibraryDetail;
 public class LibraryDetailSteps : Steps
 {
     private readonly LibraryDetailsPage _libraryDetailsPage;
+    private readonly ScenarioContext _scenarioContext;
 
-    public LibraryDetailSteps(LibraryDetailsPage libraryDetailsPage)
+    public LibraryDetailSteps(LibraryDetailsPage libraryDetailsPage, ScenarioContext scenarioContext)
     {
         _libraryDetailsPage = libraryDetailsPage;
+        _scenarioContext = scenarioContext;
     }
 
     [StepDefinition(@"we navigate to the library details page")]
@@ -33,6 +35,20 @@ public class LibraryDetailSteps : Steps
     {
         var pageLibraryName = await _libraryDetailsPage.GetLibraryNameAsync();
         pageLibraryName.Should().Be(libraryName);
+    }
+    
+    [StepDefinition(@"we consider the advertisment content")]
+    public async Task WeConsiderTheAdvertismentContent ()
+    {
+        var advertismentContent = await _libraryDetailsPage.GetAdvertismentContentAsync();
+        _scenarioContext.Add("AdvertismentContent", advertismentContent);
+    }
+
+    [StepDefinition(@"we can see the advertisment content is ""(.*)""")]
+    public void WeCanSeeTheAdvertismentContentIs (string advertismentContent)
+    {
+        var advertismentContentUT = _scenarioContext.Get<string>("AdvertismentContent");
+        advertismentContentUT.Should().Be(advertismentContent);
     }
 
 }

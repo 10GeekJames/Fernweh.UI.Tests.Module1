@@ -5,10 +5,12 @@ Feature: LibraryDetails Experience
     I want to be able to see the libraries details
     So that I can find out more about the library
 
-Background:
-    Given we navigate to the library list page
+    @test
+    Scenario Outline: I can see the advertisment on the library details page
+        Given we direct navigate to the library details page using "<libraryId>"
+        When we consider the advertisment content
+        Then we can see the advertisment content is "Sponsor the Library, get some exposure! In this IFrame"
 
-Scenario: I can navigate to the library list page
-    When we select the library by name "First Street Library"
-    Then we are on the library details page
-    And we can see the library details name is "First Street Library"
+        Examples:
+            | libraryId                            | name                 |
+            | 89d3e762-d5c8-4b00-bec8-08dbcb693716 | First Street Library |
