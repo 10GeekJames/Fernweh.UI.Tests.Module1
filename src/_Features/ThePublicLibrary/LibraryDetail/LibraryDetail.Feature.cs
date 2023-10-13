@@ -42,8 +42,8 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryDetail", "LibraryDetails Experience", "    As a guest user\r\n    I want to be able to see the libraries details\r\n    So t" +
-                    "hat I can find out more about the library", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryDetail", "Library Details Experience", "    As a guest user\r\n    I want to be able to see the libraries detail\r\n    So th" +
+                    "at I can find out more about the library", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -83,25 +83,21 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
             this.TestTearDown();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="I can see the advertisment on the library details page")]
-        [Xunit.TraitAttribute("FeatureTitle", "LibraryDetails Experience")]
-        [Xunit.TraitAttribute("Description", "I can see the advertisment on the library details page")]
-        [Xunit.TraitAttribute("Category", "test")]
-        [Xunit.InlineDataAttribute("89d3e762-d5c8-4b00-bec8-08dbcb693716", "First Street Library", new string[0])]
-        public void ICanSeeTheAdvertismentOnTheLibraryDetailsPage(string libraryId, string name, string[] exampleTags)
+        [Xunit.SkippableTheoryAttribute(DisplayName="I can see the advertisment on the library detail page")]
+        [Xunit.TraitAttribute("FeatureTitle", "Library Details Experience")]
+        [Xunit.TraitAttribute("Description", "I can see the advertisment on the library detail page")]
+        [Xunit.InlineDataAttribute("89d3e762-d5c8-4b00-bec8-08dbcb693716", "Sponsor the Library, get some exposure! In this IFrame", new string[] {
+                "qa"})]
+        [Xunit.InlineDataAttribute("1075f340-cd29-4223-2135-08dbc74f410e", "Sponsor the Library, get some exposure! In this IFrame", new string[] {
+                "dev"})]
+        public void ICanSeeTheAdvertismentOnTheLibraryDetailPage(string libraryId, string advertisment, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "test"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("libraryId", libraryId);
-            argumentsOfScenario.Add("name", name);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the advertisment on the library details page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+            argumentsOfScenario.Add("advertisment", advertisment);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the advertisment on the library detail page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -111,15 +107,62 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
             else
             {
                 this.ScenarioStart();
-#line 10
-        testRunner.Given(string.Format("we direct navigate to the library details page using \"{0}\"", libraryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+        testRunner.Given(string.Format("we direct navigate to the library detail page using \"{0}\"", libraryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 11
-        testRunner.When("we consider the advertisment content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 9
+        testRunner.Then(string.Format("the library detail advertisment content is \"{0}\"", advertisment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 12
-        testRunner.Then("we can see the advertisment content is \"Sponsor the Library, get some exposure! I" +
-                        "n this IFrame\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableTheoryAttribute(DisplayName="I can see the library detail")]
+        [Xunit.TraitAttribute("FeatureTitle", "Library Details Experience")]
+        [Xunit.TraitAttribute("Description", "I can see the library detail")]
+        [Xunit.InlineDataAttribute("89d3e762-d5c8-4b00-bec8-08dbcb693716", "First Street Library", "7AM", "9PM", "This is the first street library", "", "", new string[] {
+                "qa"})]
+        [Xunit.InlineDataAttribute("1075f340-cd29-4223-2135-08dbc74f410e", "First Street Library", "7AM", "9PM", "This is the first street library", "", "", new string[] {
+                "dev"})]
+        public void ICanSeeTheLibraryDetail(string libraryId, string name, string openHours, string closeHours, string notes, string primaryPhone, string primaryEmail, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("libraryId", libraryId);
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("open hours", openHours);
+            argumentsOfScenario.Add("close hours", closeHours);
+            argumentsOfScenario.Add("notes", notes);
+            argumentsOfScenario.Add("primary phone", primaryPhone);
+            argumentsOfScenario.Add("primary email", primaryEmail);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the library detail", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 21
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 22
+        testRunner.Given(string.Format("we direct navigate to the library detail page using \"{0}\"", libraryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 23
+        testRunner.Then(string.Format("the library detail open hours is \"{0}\"", openHours), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 24
+        testRunner.And(string.Format("the library detail close hours is \"{0}\"", closeHours), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 25
+        testRunner.And(string.Format("the library detail notes is \"{0}\"", notes), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 26
+        testRunner.And(string.Format("the library detail primary phone is \"{0}\"", primaryPhone), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 27
+        testRunner.And(string.Format("the library detail primary email is \"{0}\"", primaryEmail), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

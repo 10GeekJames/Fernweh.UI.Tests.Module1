@@ -3,52 +3,87 @@ namespace Fernweh.BlazorClient.UITests.Features.ThePublicLibrary.LibraryDetail;
 [Binding]
 public class LibraryDetailSteps : Steps
 {
-    private readonly LibraryDetailsPage _libraryDetailsPage;
+    private readonly LibraryDetailPage _libraryDetailPage;
     private readonly ScenarioContext _scenarioContext;
 
-    public LibraryDetailSteps(LibraryDetailsPage libraryDetailsPage, ScenarioContext scenarioContext)
+    public LibraryDetailSteps(LibraryDetailPage libraryDetailPage, ScenarioContext scenarioContext)
     {
-        _libraryDetailsPage = libraryDetailsPage;
+        _libraryDetailPage = libraryDetailPage;
         _scenarioContext = scenarioContext;
     }
 
-    [StepDefinition(@"we navigate to the library details page")]
-    public async Task WeNavigateToTheLibraryDetailsPage()
+    [StepDefinition(@"we navigate to the library detail page")]
+    public async Task WeNavigateToTheLibraryDetailPage()
     {
-        await _libraryDetailsPage.GotoAsync();
+        await _libraryDetailPage.GotoAsync();
     }
 
-    [StepDefinition(@"we direct navigate to the library details page using ""(.*)""")]
-    public async Task WeDirectNavigateToTheLibraryDetailsPageUsing(string libraryId)
+    [StepDefinition(@"we direct navigate to the library detail page using ""(.*)""")]
+    public async Task WeDirectNavigateToTheLibraryDetailPageUsing(string libraryId)
     {
-        await _libraryDetailsPage.GotoByIdAsync(libraryId);
+        await _libraryDetailPage.GotoByIdAsync(libraryId);
     }
 
-    [StepDefinition(@"we are on the library details page")]
-    public async Task WeAreOnTheLibraryDetailsPage()
+    [StepDefinition(@"we are on the library detail page")]
+    public async Task WeAreOnTheLibraryDetailPage()
     {
-        (await _libraryDetailsPage.IsOnPageAsync()).Should().BeTrue();
+        (await _libraryDetailPage.IsOnPageAsync()).Should().BeTrue();
     }
 
-    [StepDefinition(@"we can see the library details name is ""(.*)""")]
-    public async Task ThenWeCanSeeTheLibraryName(string libraryName)
+    [StepDefinition(@"the library detail name is ""(.*)""")]
+    public async Task TheLibraryDetailNameIs(string libraryName)
     {
-        var pageLibraryName = await _libraryDetailsPage.GetLibraryNameAsync();
+        var pageLibraryName = await _libraryDetailPage.GetLibraryNameAsync();
         pageLibraryName.Should().Be(libraryName);
     }
-    
-    [StepDefinition(@"we consider the advertisment content")]
-    public async Task WeConsiderTheAdvertismentContent ()
-    {
-        var advertismentContent = await _libraryDetailsPage.GetAdvertismentContentAsync();
-        _scenarioContext.Add("AdvertismentContent", advertismentContent);
-    }
 
-    [StepDefinition(@"we can see the advertisment content is ""(.*)""")]
-    public void WeCanSeeTheAdvertismentContentIs (string advertismentContent)
+    [StepDefinition(@"the library detail advertisment content is ""(.*)""")]
+    public async Task TheLibraryDetailAdvertismentContentIs(string advertismentContent)
     {
-        var advertismentContentUT = _scenarioContext.Get<string>("AdvertismentContent");
+        var advertismentContentUT = await _libraryDetailPage.GetAdvertismentContentAsync();    
         advertismentContentUT.Should().Be(advertismentContent);
     }
+
+    [StepDefinition(@"the library detail open hours is ""(.*)""")]
+    public async Task TheLibraryDetailOpenHoursAre(string openHours)
+    {
+        var openHoursUT = await _libraryDetailPage.GetOpenTimeAsync();
+        openHoursUT.Should().Be(openHours);
+    }
+    
+    [StepDefinition(@"the library detail close hours is ""(.*)""")]
+    public async Task TheLibraryDetailCloseHoursAre(string closeHours)
+    {
+        var closeHoursUT = await _libraryDetailPage.GetCloseTimeAsync();
+        closeHoursUT.Should().Be(closeHours);
+    }
+    
+    [StepDefinition(@"the library detail notes is ""(.*)""")]
+    public async void TheLibraryDetailNotesAre(string notes)
+    {
+        var notesUT = await _libraryDetailPage.GetNotesAsync();
+        notesUT.Should().Be(notes);
+    }
+
+    [StepDefinition(@"the library detail primary phone is ""(.*)""")]
+    public async void TheLibraryDetailPrimaryPhoneIs(string phone)
+    {
+        var phoneUT = await _libraryDetailPage.GetPrimaryPhoneAsync();
+        phone.Should().Be(phone);
+    }
+
+    [StepDefinition(@"the library detail primary email is ""(.*)""")]
+    public async void TheLibraryDetailPrimaryEmailIs(string email)
+    {
+        var emailUT = await _libraryDetailPage.GetPrimaryEmailAsync();
+        email.Should().Be(email);
+    }    
+
+    [StepDefinition(@"we see a healthy library detail screen")]
+    public void WeSeeAHealthyLibraryDetailScreen()
+    {
+        
+    }    
+    
 
 }
