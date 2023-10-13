@@ -1,13 +1,13 @@
-@LibraryDetails @LibraryDetailsDirectNavigate
+@LibraryDetail @LibraryDetailDirectNavigate
 
 Feature: LibraryDetailDirectNavigate Experience
     As a guest user
-    I want to be able to see the libraries details
+    I want to be able to see the library detail
     So that I can find out more about the library
 
     Scenario Outline: I can navigate to the library list page
-        When we direct navigate to the library details page using "<libraryId>"
-        And we can see the library details name is "<name>"
+        When we direct navigate to the library detail page using "<libraryId>"
+        And the library detail name is "<name>"
 
         Examples:
             | libraryId                            | name                 |

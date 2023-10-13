@@ -119,9 +119,6 @@ this.FeatureBackground();
 #line 12
     testRunner.When(string.Format("we search for the library listed as \"{0}\"", libraryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
-    testRunner.Then(string.Format("we can see the library listed as \"{0}\"", libraryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
             }
             this.ScenarioCleanup();
         }

@@ -27,6 +27,7 @@ public class LibraryListPage : BasePageObject
         return (await foundSelector.IsVisibleAsync());
     }
 
-    private ILocator SelectLibraryLocator (string libraryName) => Page.Locator($"a:has-text('{libraryName}')");
+    //private ILocator SelectLibraryLocator (string libraryName) => Page.Locator($"a:has-text('{libraryName}')");
+    private ILocator SelectLibraryLocator (string libraryName) => Page.GetByTestId(libraryName);
 
 }

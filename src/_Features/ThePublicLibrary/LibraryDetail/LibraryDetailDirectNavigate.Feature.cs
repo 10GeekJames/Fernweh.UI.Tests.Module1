@@ -19,16 +19,16 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "LibraryDetails")]
-    [Xunit.TraitAttribute("Category", "LibraryDetailsDirectNavigate")]
+    [Xunit.TraitAttribute("Category", "LibraryDetail")]
+    [Xunit.TraitAttribute("Category", "LibraryDetailDirectNavigate")]
     public partial class LibraryDetailDirectNavigateExperienceFeature : object, Xunit.IClassFixture<LibraryDetailDirectNavigateExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "LibraryDetails",
-                "LibraryDetailsDirectNavigate"};
+                "LibraryDetail",
+                "LibraryDetailDirectNavigate"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -44,8 +44,8 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryDetail", "LibraryDetailDirectNavigate Experience", "    As a guest user\r\n    I want to be able to see the libraries details\r\n    So t" +
-                    "hat I can find out more about the library", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryDetail", "LibraryDetailDirectNavigate Experience", "    As a guest user\r\n    I want to be able to see the library detail\r\n    So that" +
+                    " I can find out more about the library", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -107,10 +107,10 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
             {
                 this.ScenarioStart();
 #line 9
-        testRunner.When(string.Format("we direct navigate to the library details page using \"{0}\"", libraryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When(string.Format("we direct navigate to the library detail page using \"{0}\"", libraryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
-        testRunner.And(string.Format("we can see the library details name is \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("the library detail name is \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

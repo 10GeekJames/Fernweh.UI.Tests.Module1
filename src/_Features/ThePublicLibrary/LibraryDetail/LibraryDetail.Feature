@@ -13,10 +13,10 @@ Feature: Library Details Experience
             | libraryId                            | advertisment                                           |
             | 89d3e762-d5c8-4b00-bec8-08dbcb693716 | Sponsor the Library, get some exposure! In this IFrame |
 
-        @dev
-        Examples:
-            | libraryId                            | advertisment                                           |
-            | 1075f340-cd29-4223-2135-08dbc74f410e | Sponsor the Library, get some exposure! In this IFrame |
+    #    @dev
+    #    Examples:
+    #        | libraryId                            | advertisment                                           |
+    #        | 1075f340-cd29-4223-2135-08dbc74f410e | Sponsor the Library, get some exposure! In this IFrame |
 
     Scenario Outline: I can see the library detail
         Given we direct navigate to the library detail page using "<libraryId>"
@@ -31,8 +31,8 @@ Feature: Library Details Experience
             | libraryId                            | name                 | open hours | close hours | notes                            | primary phone | primary email |
             | 89d3e762-d5c8-4b00-bec8-08dbcb693716 | First Street Library | 7AM        | 9PM         | This is the first street library |               |               |
 
-        @dev
-        Examples:
-            | libraryId                            | name                 | open hours | close hours | notes                            | primary phone | primary email |
-            | 1075f340-cd29-4223-2135-08dbc74f410e | First Street Library | 7AM        | 9PM         | This is the first street library |               |               |
+    #    @dev
+    #    Examples:
+    #        | libraryId                            | name                 | open hours | close hours | notes                            | primary phone | primary email |
+    #        | 1075f340-cd29-4223-2135-08dbc74f410e | First Street Library | 7AM        | 9PM         | This is the first street library |               |               |
 

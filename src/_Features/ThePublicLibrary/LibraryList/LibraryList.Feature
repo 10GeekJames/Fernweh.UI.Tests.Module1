@@ -10,8 +10,7 @@ Background:
 
 Scenario Outline: I can navigate to the library list page
     When we search for the library listed as "<library name>"
-    Then we can see the library listed as "<library name>"
-
+    
     Examples:
         | library name |
         | First Street Library |

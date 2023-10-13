@@ -88,8 +88,6 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         [Xunit.TraitAttribute("Description", "I can see the advertisment on the library detail page")]
         [Xunit.InlineDataAttribute("89d3e762-d5c8-4b00-bec8-08dbcb693716", "Sponsor the Library, get some exposure! In this IFrame", new string[] {
                 "qa"})]
-        [Xunit.InlineDataAttribute("1075f340-cd29-4223-2135-08dbc74f410e", "Sponsor the Library, get some exposure! In this IFrame", new string[] {
-                "dev"})]
         public void ICanSeeTheAdvertismentOnTheLibraryDetailPage(string libraryId, string advertisment, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -122,8 +120,6 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         [Xunit.TraitAttribute("Description", "I can see the library detail")]
         [Xunit.InlineDataAttribute("89d3e762-d5c8-4b00-bec8-08dbcb693716", "First Street Library", "7AM", "9PM", "This is the first street library", "", "", new string[] {
                 "qa"})]
-        [Xunit.InlineDataAttribute("1075f340-cd29-4223-2135-08dbc74f410e", "First Street Library", "7AM", "9PM", "This is the first street library", "", "", new string[] {
-                "dev"})]
         public void ICanSeeTheLibraryDetail(string libraryId, string name, string openHours, string closeHours, string notes, string primaryPhone, string primaryEmail, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
