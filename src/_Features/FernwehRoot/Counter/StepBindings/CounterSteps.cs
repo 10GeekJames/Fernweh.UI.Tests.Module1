@@ -23,7 +23,7 @@ public class CounterSteps : Steps
     }
 
     [StepDefinition(@"we are on the counter page")]
-    public async void WeAreOnTheCounterPage()
+    public async Task WeAreOnTheCounterPage()
     {
         (await _counterPage.IsOnPageAsync()).Should().BeTrue();
     }

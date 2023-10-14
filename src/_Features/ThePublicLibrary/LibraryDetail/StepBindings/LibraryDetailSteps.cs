@@ -61,21 +61,21 @@ public class LibraryDetailSteps : Steps
     }
     
     [StepDefinition(@"the library detail notes is ""(.*)""")]
-    public async void TheLibraryDetailNotesAre(string notes)
+    public async Task TheLibraryDetailNotesAre(string notes)
     {
         var notesUT = await _libraryDetailPage.GetNotesAsync();
         notesUT.Should().Be(notes);
     }
 
     [StepDefinition(@"the library detail primary phone is ""(.*)""")]
-    public async void TheLibraryDetailPrimaryPhoneIs(string phone)
+    public async Task TheLibraryDetailPrimaryPhoneIs(string phone)
     {
         var phoneUT = await _libraryDetailPage.GetPrimaryPhoneAsync();
         phone.Should().Be(phone);
     }
 
     [StepDefinition(@"the library detail primary email is ""(.*)""")]
-    public async void TheLibraryDetailPrimaryEmailIs(string email)
+    public async Task TheLibraryDetailPrimaryEmailIs(string email)
     {
         var emailUT = await _libraryDetailPage.GetPrimaryEmailAsync();
         email.Should().Be(email);
