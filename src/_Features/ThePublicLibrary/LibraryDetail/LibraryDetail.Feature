@@ -19,4 +19,4 @@ Feature: Library Details Experience
         Examples:
             | library data key | name                  | open hours | close hours | notes                             | primary phone | primary email |
             | Library1         | First Street Library  | 7AM        | 9PM         | This is the first street library  |               |               |
-            | Library2         | Second Street Library | 7AM        | 9PM        | This is the second street library |               |               |
+            | Library2         | Second Street Library | 7AM        | 9PM         | This is the second street library |               |               |
