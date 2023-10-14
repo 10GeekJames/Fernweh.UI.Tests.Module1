@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using System.Reflection;
 namespace AddToMeeting.UITests.Hooks;
 [Binding]
@@ -11,7 +12,7 @@ public class SpecFlowBindingHooks
     }
 
     [BeforeScenario]
-    public async Task SetupWebDriver()
+    public async Task SetupWebDriver(ScenarioContext scenarioContext)
     {
         var builder = new ConfigurationBuilder();
         var env = Environment.GetEnvironmentVariable("env") ?? "qa";
@@ -35,6 +36,9 @@ public class SpecFlowBindingHooks
         this._objectContainer.RegisterInstanceAs<IPlaywright>(playwright);
         this._objectContainer.RegisterInstanceAs<IBrowser>(browser);
         this._objectContainer.RegisterInstanceAs<IPage>(page);
+        
+        scenarioContext.Add("Library1", new Guid("89d3e762-d5c8-4b00-bec8-08dbcb693716"));
+        scenarioContext.Add("Library2", new Guid("e278f635-1700-4e1e-bec9-08dbcb693716"));
 
     }
 

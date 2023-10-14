@@ -18,12 +18,14 @@ public class LibraryDetailSteps : Steps
         await _libraryDetailPage.GotoAsync();
     }
 
-    [StepDefinition(@"we direct navigate to the library detail page using ""(.*)""")]
-    public async Task WeDirectNavigateToTheLibraryDetailPageUsing(string libraryId)
+    
+    [StepDefinition(@"we direct navigate to ""(.*)"" detail page")]
+    public async Task WeDirectNavigateToTheNamedLibraryDetailPageUsing(string namedLibraryInDataset)
     {
-        await _libraryDetailPage.GotoByIdAsync(libraryId);
+        var libraryId = _scenarioContext.Get<Guid>(namedLibraryInDataset);
+        await _libraryDetailPage.GotoByIdAsync(libraryId.ToString());
     }
-
+    
     [StepDefinition(@"we are on the library detail page")]
     public async Task WeAreOnTheLibraryDetailPage()
     {

@@ -19,16 +19,14 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "LibraryDetail")]
-    [Xunit.TraitAttribute("Category", "LibraryDetailDirectNavigate")]
+    [Xunit.TraitAttribute("Category", "smoke")]
     public partial class LibraryDetailDirectNavigateExperienceFeature : object, Xunit.IClassFixture<LibraryDetailDirectNavigateExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "LibraryDetail",
-                "LibraryDetailDirectNavigate"};
+                "smoke"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -88,12 +86,13 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         [Xunit.SkippableTheoryAttribute(DisplayName="I can navigate to the library list page")]
         [Xunit.TraitAttribute("FeatureTitle", "LibraryDetailDirectNavigate Experience")]
         [Xunit.TraitAttribute("Description", "I can navigate to the library list page")]
-        [Xunit.InlineDataAttribute("89d3e762-d5c8-4b00-bec8-08dbcb693716", "First Street Library", new string[0])]
-        public void ICanNavigateToTheLibraryListPage(string libraryId, string name, string[] exampleTags)
+        [Xunit.InlineDataAttribute("Library1", "First Street Library", new string[0])]
+        [Xunit.InlineDataAttribute("Library2", "Second Street Library", new string[0])]
+        public void ICanNavigateToTheLibraryListPage(string libraryDataKey, string name, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("libraryId", libraryId);
+            argumentsOfScenario.Add("library data key", libraryDataKey);
             argumentsOfScenario.Add("name", name);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can navigate to the library list page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
@@ -107,7 +106,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
             {
                 this.ScenarioStart();
 #line 9
-        testRunner.When(string.Format("we direct navigate to the library detail page using \"{0}\"", libraryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.Given(string.Format("we direct navigate to \"{0}\" detail page", libraryDataKey), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
         testRunner.And(string.Format("the library detail name is \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

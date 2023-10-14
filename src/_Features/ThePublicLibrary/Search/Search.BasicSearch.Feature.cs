@@ -85,9 +85,9 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
         public virtual void FeatureBackground()
         {
 #line 8
-#line hidden
+    #line hidden
 #line 9
-    testRunner.Given("we navigate to the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("we navigate to the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -112,7 +112,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
             argumentsOfScenario.Add("title value", titleValue);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for books using various patterns", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
-this.ScenarioInitialize(scenarioInfo);
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -122,19 +122,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 8
-this.FeatureBackground();
+    this.FeatureBackground();
 #line hidden
 #line 12
-    testRunner.Given(string.Format("we search for \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given(string.Format("we search for \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
-    testRunner.And(string.Format("the search values are \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("the search values are \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
-    testRunner.When("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
-    testRunner.Then("we are on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("we are on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -1,4 +1,4 @@
-@LibraryDetail @LibraryDetailDirectNavigate
+@smoke
 
 Feature: LibraryDetailDirectNavigate Experience
     As a guest user
@@ -6,9 +6,10 @@ Feature: LibraryDetailDirectNavigate Experience
     So that I can find out more about the library
 
     Scenario Outline: I can navigate to the library list page
-        When we direct navigate to the library detail page using "<libraryId>"
+        Given we direct navigate to "<library data key>" detail page
         And the library detail name is "<name>"
 
         Examples:
-            | libraryId                            | name                 |
-            | 89d3e762-d5c8-4b00-bec8-08dbcb693716 | First Street Library |
+            | library data key | name                  |
+            | Library1         | First Street Library  |
+            | Library2         | Second Street Library |
