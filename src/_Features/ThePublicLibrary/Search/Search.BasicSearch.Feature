@@ -1,4 +1,4 @@
-@Search @BasicSearch @Regression
+@Smoke
 
 Feature: Can search for books by ISBN, Author, Title
     As a guest user

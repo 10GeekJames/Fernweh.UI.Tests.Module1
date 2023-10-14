@@ -1,4 +1,4 @@
-@LibraryList
+@Smoke
 
 Feature: LibraryLists Experience
     As a guest user

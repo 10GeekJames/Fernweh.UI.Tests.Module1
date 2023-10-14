@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryList
+namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,7 +20,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryList
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Xunit.TraitAttribute("Category", "Smoke")]
-    public partial class LibraryListsExperienceFeature : object, Xunit.IClassFixture<LibraryListsExperienceFeature.FixtureData>, System.IDisposable
+    public partial class SearchByNameExperienceFeature : object, Xunit.IClassFixture<SearchByNameExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,10 +30,10 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryList
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "LibraryList.Feature"
+#line 1 "Search.SearchByName.Feature"
 #line hidden
         
-        public LibraryListsExperienceFeature(LibraryListsExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public SearchByNameExperienceFeature(SearchByNameExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -42,8 +42,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryList
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryList", "LibraryLists Experience", "    As a guest user\r\n    I want to be able to see a list of libraries\r\n    So tha" +
-                    "t I can find out more about them", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/Search", "Search by Name Experience", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,10 +79,10 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryList
         
         public virtual void FeatureBackground()
         {
-#line 8
+#line 4
 #line hidden
-#line 9
-    testRunner.Given("we navigate to the library list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 5
+    testRunner.Given("we navigate to the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -92,18 +91,15 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryList
             this.TestTearDown();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="I can navigate to the library list page")]
-        [Xunit.TraitAttribute("FeatureTitle", "LibraryLists Experience")]
-        [Xunit.TraitAttribute("Description", "I can navigate to the library list page")]
-        [Xunit.InlineDataAttribute("First Street Library", new string[0])]
-        [Xunit.InlineDataAttribute("Second Street Library", new string[0])]
-        public void ICanNavigateToTheLibraryListPage(string libraryName, string[] exampleTags)
+        [Xunit.SkippableFactAttribute(DisplayName="Search for a book by Name")]
+        [Xunit.TraitAttribute("FeatureTitle", "Search by Name Experience")]
+        [Xunit.TraitAttribute("Description", "Search for a book by Name")]
+        public void SearchForABookByName()
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("library name", libraryName);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can navigate to the library list page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for a book by Name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -113,11 +109,48 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
+#line 4
 this.FeatureBackground();
 #line hidden
+#line 8
+    testRunner.When("we search for \"book\", \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 9
+    testRunner.And("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 10
+    testRunner.Then("we are on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Search for a book by invalid Name")]
+        [Xunit.TraitAttribute("FeatureTitle", "Search by Name Experience")]
+        [Xunit.TraitAttribute("Description", "Search for a book by invalid Name")]
+        public void SearchForABookByInvalidName()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for a book by invalid Name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
-    testRunner.When(string.Format("we search for the library listed as \"{0}\"", libraryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 13
+    testRunner.When("we auto search for \"\", \"abcdefghijklmnopqrstuvwxyz\", \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+    testRunner.Then("we see a search error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -130,12 +163,12 @@ this.FeatureBackground();
             
             public FixtureData()
             {
-                LibraryListsExperienceFeature.FeatureSetup();
+                SearchByNameExperienceFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                LibraryListsExperienceFeature.FeatureTearDown();
+                SearchByNameExperienceFeature.FeatureTearDown();
             }
         }
     }

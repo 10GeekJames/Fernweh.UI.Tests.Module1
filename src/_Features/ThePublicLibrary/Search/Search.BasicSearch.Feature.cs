@@ -19,18 +19,14 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "Search")]
-    [Xunit.TraitAttribute("Category", "BasicSearch")]
-    [Xunit.TraitAttribute("Category", "Regression")]
+    [Xunit.TraitAttribute("Category", "Smoke")]
     public partial class CanSearchForBooksByISBNAuthorTitleFeature : object, Xunit.IClassFixture<CanSearchForBooksByISBNAuthorTitleFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Search",
-                "BasicSearch",
-                "Regression"};
+                "Smoke"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         

@@ -1,4 +1,4 @@
-@Search @Isbn @Regression
+@Smoke
 Feature: Search by ISBN Experience
 
 Background: 

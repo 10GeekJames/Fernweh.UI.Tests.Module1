@@ -7,6 +7,8 @@ public abstract class BasePageObject
     protected IPage Page { get; set; }
     protected AppConfig AppConfig { get; set; }    
 
+    private readonly string _loadingDataSelector = ".loading-data";
+
     public BasePageObject(IPage page, AppConfig appConfig, string pagePath)
     {
         AppConfig = appConfig;
@@ -15,6 +17,14 @@ public abstract class BasePageObject
         BasePath = $"{appConfig.TestUrl}{BasePath}";
 
         Page.WaitForLoadStateAsync(LoadState.NetworkIdle).GetAwaiter().GetResult();
+        var loadingIndicatorCheckCount = 0;
+        var loadingIndicatorIsVisible = Page.IsVisibleAsync(_loadingDataSelector).GetAwaiter().GetResult();
+        while(loadingIndicatorIsVisible || loadingIndicatorCheckCount > 20)
+        {            
+            Thread.Sleep(300);
+            loadingIndicatorIsVisible = Page.IsVisibleAsync(_loadingDataSelector).GetAwaiter().GetResult();
+            loadingIndicatorCheckCount++;
+        }
     }
 
     public async Task<string> GetTitleAsync()

@@ -19,14 +19,14 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "smoke")]
+    [Xunit.TraitAttribute("Category", "Smoke")]
     public partial class LibraryDetailsExperienceFeature : object, Xunit.IClassFixture<LibraryDetailsExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "smoke"};
+                "Smoke"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         

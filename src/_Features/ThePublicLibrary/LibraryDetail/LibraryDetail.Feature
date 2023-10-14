@@ -1,4 +1,4 @@
-@smoke
+@Smoke
 Feature: Library Details Experience
     As a guest user
     I want to be able to see the libraries detail

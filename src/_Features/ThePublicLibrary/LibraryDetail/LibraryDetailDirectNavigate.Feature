@@ -1,4 +1,4 @@
-@smoke
+@Smoke
 
 Feature: LibraryDetailDirectNavigate Experience
     As a guest user
