@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fernweh.BlazorClient.UITests", "src\Fernweh.BlazorClient.UITests.csproj", "{617A4D1B-490B-44AC-B8DA-D7435F9907FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fernweh.UITests", "src\Fernweh.UITests.csproj", "{617A4D1B-490B-44AC-B8DA-D7435F9907FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
