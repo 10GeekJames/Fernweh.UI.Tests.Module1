@@ -113,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 8
-    testRunner.When("we search for \"book\", \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("we search for \"\", \"book\", \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
     testRunner.And("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
