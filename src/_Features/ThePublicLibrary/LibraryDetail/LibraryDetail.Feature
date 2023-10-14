@@ -1,5 +1,5 @@
 @Smoke
-Feature: Library Details Experience
+Feature: Library Detail Experience
     As a guest user
     I want to be able to see the libraries detail
     So that I can find out more about the library

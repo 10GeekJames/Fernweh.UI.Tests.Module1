@@ -20,7 +20,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Xunit.TraitAttribute("Category", "Smoke")]
-    public partial class LibraryDetailsExperienceFeature : object, Xunit.IClassFixture<LibraryDetailsExperienceFeature.FixtureData>, System.IDisposable
+    public partial class LibraryDetailExperienceFeature : object, Xunit.IClassFixture<LibraryDetailExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -33,7 +33,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
 #line 1 "LibraryDetail.Feature"
 #line hidden
         
-        public LibraryDetailsExperienceFeature(LibraryDetailsExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public LibraryDetailExperienceFeature(LibraryDetailExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -42,7 +42,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryDetail", "Library Details Experience", "    As a guest user\r\n    I want to be able to see the libraries detail\r\n    So th" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryDetail", "Library Detail Experience", "    As a guest user\r\n    I want to be able to see the libraries detail\r\n    So th" +
                     "at I can find out more about the library", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -84,7 +84,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="I can see the advertisment on the library detail page")]
-        [Xunit.TraitAttribute("FeatureTitle", "Library Details Experience")]
+        [Xunit.TraitAttribute("FeatureTitle", "Library Detail Experience")]
         [Xunit.TraitAttribute("Description", "I can see the advertisment on the library detail page")]
         public void ICanSeeTheAdvertismentOnTheLibraryDetailPage()
         {
@@ -113,7 +113,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
         }
         
         [Xunit.SkippableTheoryAttribute(DisplayName="I can see the library detail")]
-        [Xunit.TraitAttribute("FeatureTitle", "Library Details Experience")]
+        [Xunit.TraitAttribute("FeatureTitle", "Library Detail Experience")]
         [Xunit.TraitAttribute("Description", "I can see the library detail")]
         [Xunit.InlineDataAttribute("Library1", "First Street Library", "7AM", "9PM", "This is the first street library", "", "", new string[0])]
         [Xunit.InlineDataAttribute("Library2", "Second Street Library", "7AM", "9PM", "This is the second street library", "", "", new string[0])]
@@ -168,12 +168,12 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.LibraryDetail
             
             public FixtureData()
             {
-                LibraryDetailsExperienceFeature.FeatureSetup();
+                LibraryDetailExperienceFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                LibraryDetailsExperienceFeature.FeatureTearDown();
+                LibraryDetailExperienceFeature.FeatureTearDown();
             }
         }
     }

@@ -1,31 +1,31 @@
 using System.Globalization;
 namespace Fernweh.BlazorClient.UITests.Features.ThePublicLibrary.BookDetail;
 
-public class BookDetailsPage : BasePageObject
+public class BookDetailPage : BasePageObject
 {
+    private readonly static string _pagePath = "/thepubliclibrary/bookDetail";
+    private ILocator _title => Page.GetByTestId("book-title");
+    private ILocator _author => Page.GetByTestId("book-author");
+    private ILocator _categories => Page.GetByTestId("book-categories");
+    private ILocator _description => Page.GetByTestId("book-description");
+    private ILocator _copiesTotal => Page.GetByTestId("book-total-copies");
+    private ILocator _copiesAvailable => Page.GetByTestId("book-available-copies");
+    private ILocator _publishDate => Page.GetByTestId("book-published-date");
 
-    private readonly string _bookDetailValueSelector = "#book-detail-value";
-    private readonly string _submitBookDetailSelector = "#book-detail-submit";
 
-    private readonly static string _pagePath = "/bookDetail";
-    public BookDetailsPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
-    public async Task NavigateToAsync() => await base.GotoAsync();
+    public BookDetailPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
 
-    public async Task<string> GetBookDetailValueAsync() => await BookDetailValueLocator.TextContentAsync() ?? ""; 
-    public async Task SetBookDetailValueAsync(string bookDetailValue) => await BookDetailValueLocator.TypeAsync(bookDetailValue);
-    public async Task SubmitBookDetailAsync() => await SubmitBookDetailLocator.ClickAsync();
-    public async Task BookDetailAsync(string bookDetailValue)
-    {
-        await SetBookDetailValueAsync(bookDetailValue);
-        await SubmitBookDetailAsync();
-    }
+    public async Task<string> GetTitleAsync() => await _title.TextContentAsync();
+    public async Task<string> GetAuthorAsync() => await _author.TextContentAsync();
+    public async Task<string> GetCategoriesAsync() => await _categories.TextContentAsync();
+    public async Task<string> GetDescriptionAsync() => await _description.TextContentAsync();
+    public async Task<int> GetCopiesTotalAsync() => int.Parse(await _copiesTotal.TextContentAsync());
+    public async Task<int> GetCopiesAvailableAsync() => int.Parse(await _copiesAvailable.TextContentAsync());
+    public async Task<string> GetPublishDateAsync() => await _publishDate.TextContentAsync();
 
     public async Task<bool> IsOnPageAsync()
     {
-        return await Page.IsVisibleAsync(_bookDetailValueSelector);
+        await Task.Yield();
+        return Page.Url.Contains(_pagePath);
     }
-
-    private ILocator BookDetailValueLocator => Page.Locator(_bookDetailValueSelector);
-    private ILocator SubmitBookDetailLocator => Page.Locator(_submitBookDetailSelector);
-
 }

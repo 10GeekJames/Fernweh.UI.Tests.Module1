@@ -40,6 +40,11 @@ public class SpecFlowBindingHooks
         scenarioContext.Add("Library1", new Guid("89d3e762-d5c8-4b00-bec8-08dbcb693716"));
         scenarioContext.Add("Library2", new Guid("e278f635-1700-4e1e-bec9-08dbcb693716"));
 
+        //scenarioContext.Add("Book1", new BookViewModel());
+        foreach(var book in BookTestData.AllBooks) {
+            scenarioContext.Add(book.Isbn.Isbn, book);
+        }
+
     }
 
     [AfterScenario]

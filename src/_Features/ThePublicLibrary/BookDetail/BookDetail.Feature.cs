@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.SearchResult
+namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.BookDetail
 {
     using TechTalk.SpecFlow;
     using System;
@@ -19,21 +19,21 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.SearchResult
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "test")]
-    public partial class SearchGridManyCopiesResultHasSevenFeature : object, Xunit.IClassFixture<SearchGridManyCopiesResultHasSevenFeature.FixtureData>, System.IDisposable
+    [Xunit.TraitAttribute("Category", "Smoke")]
+    public partial class BookDetailExperienceFeature : object, Xunit.IClassFixture<BookDetailExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "test"};
+                "Smoke"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "SearchBookManyCopiesHasSeven.Feature"
+#line 1 "BookDetail.Feature"
 #line hidden
         
-        public SearchGridManyCopiesResultHasSevenFeature(SearchGridManyCopiesResultHasSevenFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public BookDetailExperienceFeature(BookDetailExperienceFeature.FixtureData fixtureData, Fernweh_BlazorClient_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -42,7 +42,8 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.SearchResult
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/SearchResult", "Search Grid ManyCopies Result has Seven", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/BookDetail", "Book Detail Experience", "    As a guest user\r\n    I want to be able to see the books detail\r\n    So that I" +
+                    " can find out more about the book", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -82,15 +83,20 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.SearchResult
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Can find 7 copies of the book many copies by isbn")]
-        [Xunit.TraitAttribute("FeatureTitle", "Search Grid ManyCopies Result has Seven")]
-        [Xunit.TraitAttribute("Description", "Can find 7 copies of the book many copies by isbn")]
-        public void CanFind7CopiesOfTheBookManyCopiesByIsbn()
+        [Xunit.SkippableTheoryAttribute(DisplayName="I can see the book details")]
+        [Xunit.TraitAttribute("FeatureTitle", "Book Detail Experience")]
+        [Xunit.TraitAttribute("Description", "I can see the book details")]
+        [Xunit.InlineDataAttribute("\"978-0-00-000000-6\"", new string[0])]
+        [Xunit.InlineDataAttribute("\"978-0-00-000000-7\"", new string[0])]
+        [Xunit.InlineDataAttribute("\"978-0-00-000000-8\"", new string[0])]
+        [Xunit.InlineDataAttribute("\"978-0-00-000000-9\"", new string[0])]
+        public void ICanSeeTheBookDetails(string bookId, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can find 7 copies of the book many copies by isbn", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+            argumentsOfScenario.Add("book id", bookId);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the book details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -100,11 +106,11 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.SearchResult
             else
             {
                 this.ScenarioStart();
-#line 5
-        testRunner.Given("I navigate to the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+        testRunner.Given(string.Format("I navigate to book by id \"{0}\"", bookId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 6
-        testRunner.Then("I can see \"7\" results for book isbn \"978-5-00-000001-1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 9
+        testRunner.Then(string.Format("I can see the book details for \"{0}\"", bookId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -117,12 +123,12 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.SearchResult
             
             public FixtureData()
             {
-                SearchGridManyCopiesResultHasSevenFeature.FeatureSetup();
+                BookDetailExperienceFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                SearchGridManyCopiesResultHasSevenFeature.FeatureTearDown();
+                BookDetailExperienceFeature.FeatureTearDown();
             }
         }
     }
