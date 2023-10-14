@@ -7,8 +7,8 @@ Background:
 Scenario: Search for a book by Name
     When we search for "", "book", ""
     And we submit the search
-    Then we are on the search result page
+    Then I am on the search result page
 
 Scenario: Search for a book by invalid Name
-    When we auto search for "", "abcdefghijklmnopqrstuvwxyz", ""
+    When we auto search for "", "", "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
     Then we see a search error message

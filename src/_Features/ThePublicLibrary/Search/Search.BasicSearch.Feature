@@ -12,7 +12,7 @@ Feature: Can search for books by ISBN, Author, Title
         Given we search for "<isbn value>", "<author value>", "<title value>"
         And the search values are "<isbn value>", "<author value>", "<title value>"
         When we submit the search
-        Then we are on the search result page
+        Then I am on the search result page
         Examples:
             | isbn value    | author value | title value |
             | 0-5170-9394-4 |              |             |

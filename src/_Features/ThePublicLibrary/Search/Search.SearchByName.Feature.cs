@@ -119,7 +119,7 @@ this.FeatureBackground();
     testRunner.And("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
-    testRunner.Then("we are on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("I am on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -147,7 +147,8 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 13
-    testRunner.When("we auto search for \"\", \"abcdefghijklmnopqrstuvwxyz\", \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("we auto search for \"\", \"\", \"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\"" +
+                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
     testRunner.Then("we see a search error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

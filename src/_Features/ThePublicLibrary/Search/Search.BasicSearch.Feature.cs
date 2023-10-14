@@ -130,7 +130,7 @@ namespace Fernweh.BlazorClient.UITests._Features.ThePublicLibrary.Search
         testRunner.When("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
-        testRunner.Then("we are on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("I am on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
