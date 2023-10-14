@@ -19,16 +19,22 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "Smoke")]
-    [Xunit.TraitAttribute("Category", "Author")]
+    [Xunit.TraitAttribute("Category", "smoke")]
+    [Xunit.TraitAttribute("Category", "thepubliclibrary")]
+    [Xunit.TraitAttribute("Category", "book")]
+    [Xunit.TraitAttribute("Category", "search")]
+    [Xunit.TraitAttribute("Category", "author")]
     public partial class SearchByAuthorExperienceFeature : object, Xunit.IClassFixture<SearchByAuthorExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Smoke",
-                "Author"};
+                "smoke",
+                "thepubliclibrary",
+                "book",
+                "search",
+                "author"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         

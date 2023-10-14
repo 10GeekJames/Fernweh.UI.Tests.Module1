@@ -12,7 +12,7 @@ public class SpecFlowBindingHooks
     {
         _objectContainer = objectContainer;
     }
-
+    
     [BeforeScenario]
     public async Task SetupWebDriver(ScenarioContext scenarioContext)
     {

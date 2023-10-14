@@ -19,14 +19,20 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.BookDetail
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "Smoke")]
+    [Xunit.TraitAttribute("Category", "smoke")]
+    [Xunit.TraitAttribute("Category", "thepubliclibrary")]
+    [Xunit.TraitAttribute("Category", "book")]
+    [Xunit.TraitAttribute("Category", "bookdetail")]
     public partial class BookDetailExperienceFeature : object, Xunit.IClassFixture<BookDetailExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Smoke"};
+                "smoke",
+                "thepubliclibrary",
+                "book",
+                "bookdetail"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         

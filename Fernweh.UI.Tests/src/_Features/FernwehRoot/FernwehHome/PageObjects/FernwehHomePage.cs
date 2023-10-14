@@ -3,29 +3,18 @@ namespace Fernweh.UITests.Features.ThePublicLibrary.FernwehHome;
 
 public class FernwehHomePage : BasePageObject
 {
-
-    private readonly string _fernwehHomeValueSelector = "#fernweh-home-value";
-    private readonly string _submitFernwehHomeSelector = "#fernweh-home-submit";
-
-    private readonly static string _pagePath = "/fernwehHome";
+    public readonly static string TITLE = "Fernweh";    
+    public readonly static string _pagePath = "";    
+    private ILocator _fernwehTitleValueLocator => Page.GetByTestId("title");    
+    
     public FernwehHomePage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
-    public async Task NavigateToAsync() => await base.GotoAsync();
-
-    public async Task<string> GetFernwehHomeValueAsync() => await FernwehHomeValueLocator.TextContentAsync() ?? ""; 
-    public async Task SetFernwehHomeValueAsync(string fernwehHomeValue) => await FernwehHomeValueLocator.TypeAsync(fernwehHomeValue);
-    public async Task SubmitFernwehHomeAsync() => await SubmitFernwehHomeLocator.ClickAsync();
-    public async Task FernwehHomeAsync(string fernwehHomeValue)
-    {
-        await SetFernwehHomeValueAsync(fernwehHomeValue);
-        await SubmitFernwehHomeAsync();
-    }
-
+    
+    public async Task<string> GetFernwehTitleValueAsync() => await _fernwehTitleValueLocator.TextContentAsync() ?? ""; 
+    
     public async Task<bool> IsOnPageAsync()
     {
-        return await Page.IsVisibleAsync(_fernwehHomeValueSelector);
-    }
-
-    private ILocator FernwehHomeValueLocator => Page.Locator(_fernwehHomeValueSelector);
-    private ILocator SubmitFernwehHomeLocator => Page.Locator(_submitFernwehHomeSelector);
-
+        await _fernwehTitleValueLocator.WaitForAsync();
+        var titleValue = await _fernwehTitleValueLocator.TextContentAsync();
+        return titleValue == TITLE;
+    } 
 }

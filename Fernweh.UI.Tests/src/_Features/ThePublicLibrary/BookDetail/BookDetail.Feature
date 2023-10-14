@@ -1,4 +1,4 @@
-@Smoke
+@smoke @thepubliclibrary @book @bookdetail
 Feature: Book Detail Experience
     As a guest user
     I want to be able to see the books detail

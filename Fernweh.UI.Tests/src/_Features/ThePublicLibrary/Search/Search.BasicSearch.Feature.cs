@@ -19,14 +19,20 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "Smoke")]
+    [Xunit.TraitAttribute("Category", "smoke")]
+    [Xunit.TraitAttribute("Category", "thepubliclibrary")]
+    [Xunit.TraitAttribute("Category", "book")]
+    [Xunit.TraitAttribute("Category", "search")]
     public partial class CanSearchForBooksByISBNAuthorTitleFeature : object, Xunit.IClassFixture<CanSearchForBooksByISBNAuthorTitleFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Smoke"};
+                "smoke",
+                "thepubliclibrary",
+                "book",
+                "search"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -80,9 +86,9 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
         
         public virtual void FeatureBackground()
         {
-#line 8
+#line 7
     #line hidden
-#line 9
+#line 8
         testRunner.Given("we navigate to the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
@@ -107,7 +113,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
             argumentsOfScenario.Add("author value", authorValue);
             argumentsOfScenario.Add("title value", titleValue);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for books using various patterns", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+#line 10
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -117,19 +123,19 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
             else
             {
                 this.ScenarioStart();
-#line 8
+#line 7
     this.FeatureBackground();
 #line hidden
-#line 12
+#line 11
         testRunner.Given(string.Format("we search for \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 12
         testRunner.And(string.Format("the search values are \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 13
         testRunner.When("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 15
+#line 14
         testRunner.Then("I am on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

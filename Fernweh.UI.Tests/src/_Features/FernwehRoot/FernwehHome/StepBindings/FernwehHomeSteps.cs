@@ -10,29 +10,16 @@ public class FernwehHomeSteps : Steps
         _fernwehHomePage = fernwehHomePage;
     }
 
-    [StepDefinition(@"we navigate to the fernwehHome page")]
+    [StepDefinition(@"I navigate to the fernweh home website")]
     public async Task WeNavigateToTheFernwehHomePage()
     {
         await _fernwehHomePage.GotoAsync();
     }
 
-    [StepDefinition(@"we are on the fernwehHome page")]
+    [StepDefinition(@"I am on the fernweh home page")]
     public async Task WeAreOnTheFernwehHomePage()
     {
         (await _fernwehHomePage.IsOnPageAsync()).Should().BeTrue();
-    }
-    
-    [StepDefinition(@"we fernwehHome for (.*)")]
-    public async Task WeFernwehHomeFor(string fernwehHomeValue)
-    {
-        await _fernwehHomePage.FernwehHomeAsync(fernwehHomeValue);
-    }
-
-    [StepDefinition(@"the fernwehHome value is (.*)")]
-    public async Task TheFernwehHomeValueIs(string fernwehHomeValue)
-    {
-        (await _fernwehHomePage.GetFernwehHomeValueAsync()).Should().Be(fernwehHomeValue);
-    }
-    
+    }   
     
 }

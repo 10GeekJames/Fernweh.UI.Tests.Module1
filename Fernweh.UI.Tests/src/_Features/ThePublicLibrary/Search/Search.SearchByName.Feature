@@ -1,4 +1,4 @@
-@Smoke
+@smoke @thepubliclibrary @book @search @name
 Feature: Search by Name Experience
 
 Background: 

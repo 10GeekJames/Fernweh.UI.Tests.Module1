@@ -19,14 +19,20 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "Smoke")]
+    [Xunit.TraitAttribute("Category", "smoke")]
+    [Xunit.TraitAttribute("Category", "thepubliclibrary")]
+    [Xunit.TraitAttribute("Category", "library")]
+    [Xunit.TraitAttribute("Category", "librarylist")]
     public partial class LibraryListsExperienceFeature : object, Xunit.IClassFixture<LibraryListsExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Smoke"};
+                "smoke",
+                "thepubliclibrary",
+                "library",
+                "librarylist"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -80,9 +86,9 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
         
         public virtual void FeatureBackground()
         {
-#line 8
+#line 7
 #line hidden
-#line 9
+#line 8
     testRunner.Given("we navigate to the library list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
@@ -103,7 +109,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("library name", libraryName);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can navigate to the library list page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+#line 10
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -113,10 +119,10 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
+#line 7
 this.FeatureBackground();
 #line hidden
-#line 12
+#line 11
     testRunner.When(string.Format("we search for the library listed as \"{0}\"", libraryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }

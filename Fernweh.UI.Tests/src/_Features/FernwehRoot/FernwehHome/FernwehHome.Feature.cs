@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
+namespace Fernweh.UITests._Features.FernwehRoot.FernwehHome
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,26 +20,22 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Xunit.TraitAttribute("Category", "smoke")]
-    [Xunit.TraitAttribute("Category", "thepubliclibrary")]
-    [Xunit.TraitAttribute("Category", "book")]
-    [Xunit.TraitAttribute("Category", "searchresult")]
-    public partial class SearchGridManyCopiesResultHasSevenFeature : object, Xunit.IClassFixture<SearchGridManyCopiesResultHasSevenFeature.FixtureData>, System.IDisposable
+    [Xunit.TraitAttribute("Category", "fernweh")]
+    public partial class CanAccessBasicFernwehWebsiteFeature : object, Xunit.IClassFixture<CanAccessBasicFernwehWebsiteFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
                 "smoke",
-                "thepubliclibrary",
-                "book",
-                "searchresult"};
+                "fernweh"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "SearchBookManyCopiesHasSeven.Feature"
+#line 1 "FernwehHome.Feature"
 #line hidden
         
-        public SearchGridManyCopiesResultHasSevenFeature(SearchGridManyCopiesResultHasSevenFeature.FixtureData fixtureData, Fernweh_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CanAccessBasicFernwehWebsiteFeature(CanAccessBasicFernwehWebsiteFeature.FixtureData fixtureData, Fernweh_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -48,7 +44,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/SearchResult", "Search Grid ManyCopies Result has Seven", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/FernwehRoot/FernwehHome", "Can access basic fernweh website", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -88,15 +84,15 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Can find 7 copies of the book many copies by isbn")]
-        [Xunit.TraitAttribute("FeatureTitle", "Search Grid ManyCopies Result has Seven")]
-        [Xunit.TraitAttribute("Description", "Can find 7 copies of the book many copies by isbn")]
-        public void CanFind7CopiesOfTheBookManyCopiesByIsbn()
+        [Xunit.SkippableFactAttribute(DisplayName="Can access basic fernweh website")]
+        [Xunit.TraitAttribute("FeatureTitle", "Can access basic fernweh website")]
+        [Xunit.TraitAttribute("Description", "Can access basic fernweh website")]
+        public void CanAccessBasicFernwehWebsite()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can find 7 copies of the book many copies by isbn", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can access basic fernweh website", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 3
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -106,11 +102,11 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
             else
             {
                 this.ScenarioStart();
-#line 5
-        testRunner.Given("I navigate to the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 4
+        testRunner.Given("I navigate to the fernweh home website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 6
-        testRunner.Then("I can see \"7\" results for book isbn \"978-5-00-000001-1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 5
+        testRunner.Then("I am on the fernweh home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -123,12 +119,12 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
             
             public FixtureData()
             {
-                SearchGridManyCopiesResultHasSevenFeature.FeatureSetup();
+                CanAccessBasicFernwehWebsiteFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                SearchGridManyCopiesResultHasSevenFeature.FeatureTearDown();
+                CanAccessBasicFernwehWebsiteFeature.FeatureTearDown();
             }
         }
     }

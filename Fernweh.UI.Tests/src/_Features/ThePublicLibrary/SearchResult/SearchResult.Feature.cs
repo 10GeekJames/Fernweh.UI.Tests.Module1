@@ -19,12 +19,20 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [Xunit.TraitAttribute("Category", "smoke")]
+    [Xunit.TraitAttribute("Category", "thepubliclibrary")]
+    [Xunit.TraitAttribute("Category", "book")]
+    [Xunit.TraitAttribute("Category", "searchresult")]
     public partial class SearchGridInteractionsFeature : object, Xunit.IClassFixture<SearchGridInteractionsFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "smoke",
+                "thepubliclibrary",
+                "book",
+                "searchresult"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -88,7 +96,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can see search results", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2
+#line 3
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -98,10 +106,10 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 4
         testRunner.Given("I navigate to the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 4
+#line 5
         testRunner.Then("I should see search page results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

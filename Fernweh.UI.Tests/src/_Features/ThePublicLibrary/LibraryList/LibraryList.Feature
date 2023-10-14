@@ -1,5 +1,4 @@
-@Smoke
-
+@smoke @thepubliclibrary @library @librarylist
 Feature: LibraryLists Experience
     As a guest user
     I want to be able to see a list of libraries

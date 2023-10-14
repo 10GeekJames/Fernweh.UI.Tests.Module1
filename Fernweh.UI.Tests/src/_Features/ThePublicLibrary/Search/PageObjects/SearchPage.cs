@@ -5,28 +5,26 @@ public class SearchPage : BasePageObject
 {
     public readonly static string TITLE = "Search";
 
-    private readonly string _searchIsbnSelector = "#search-isbn-value";
-    private readonly string _searchAuthorSelector = "#search-author-value";
-    private readonly string _searchTitleSelector = "#search-title-value";    
-    private readonly string _submitSearchSelector = "#search-submit";
-
-    private readonly string _errorMessageSelector = "#search-error-message";
-    private readonly string _errorIsbnMessageSelector = "#isbn-search, .mud-input-helper-text.mud-input-error";    
+    private ILocator _searchIsbnLocator => Page.Locator("#search-isbn-value");
+    private ILocator _searchAuthorLocator => Page.Locator("#search-author-value");
+    private ILocator _searchTitleLocator => Page.Locator("#search-title-value");
+    private ILocator _submitSearchLocator => Page.Locator("#search-submit");
+    private ILocator _errorMessageLocator => Page.Locator("#search-error-message");
+    private ILocator _errorIsbnMessageLocator => Page.Locator("#isbn-search, .mud-input-helper-text.mud-input-error");
 
     private readonly static string _pagePath = "/thepubliclibrary/search";
     public SearchPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
-    public async Task NavigateToAsync() => await base.GotoAsync();
-
-    public async Task<string> GetIsbnValueAsync() => (await IsbnValueLocator.InputValueAsync()) ?? ""; 
-    public async Task SetIsbnValueAsync(string isbnValue) => await IsbnValueLocator.TypeAsync(isbnValue);
     
-    public async Task<string> GetAuthorValueAsync() => (await AuthorValueLocator.InputValueAsync()) ?? ""; 
-    public async Task SetAuthorValueAsync(string authorValue) => await AuthorValueLocator.TypeAsync(authorValue);
+    public async Task<string> GetIsbnValueAsync() => (await _searchIsbnLocator.InputValueAsync()) ?? ""; 
+    public async Task SetIsbnValueAsync(string isbnValue) => await _searchIsbnLocator.TypeAsync(isbnValue);
     
-    public async Task<string> GetTitleValueAsync() => (await TitleValueLocator.InputValueAsync()) ?? ""; 
-    public async Task SetTitleValueAsync(string titleValue) => await TitleValueLocator.TypeAsync(titleValue);
+    public async Task<string> GetAuthorValueAsync() => (await _searchAuthorLocator.InputValueAsync()) ?? ""; 
+    public async Task SetAuthorValueAsync(string authorValue) => await _searchAuthorLocator.TypeAsync(authorValue);
     
-    public async Task SubmitSearchAsync() => await SubmitSearchLocator.ClickAsync();
+    public async Task<string> GetTitleValueAsync() => (await _searchTitleLocator.InputValueAsync()) ?? ""; 
+    public async Task SetTitleValueAsync(string titleValue) => await _searchTitleLocator.TypeAsync(titleValue);
+    
+    public async Task SubmitSearchAsync() => await _submitSearchLocator.ClickAsync();
     
     public async Task SetValuesAsync(string isbnValue, string authorValue, string titleValue)
     {
@@ -37,18 +35,12 @@ public class SearchPage : BasePageObject
 
     public async Task<bool> IsOnPageAsync()
     {
-        await IsbnValueLocator.WaitForAsync();
+        await _searchIsbnLocator.WaitForAsync();
         return await Page.TitleAsync() == TITLE;
     }
 
     public async Task<string> GetErrorMessageAsync()
     {
-        return await Page.TextContentAsync(_errorMessageSelector);
-    }
-
-    private ILocator IsbnValueLocator => Page.Locator(_searchIsbnSelector);
-    private ILocator AuthorValueLocator => Page.Locator(_searchAuthorSelector);
-    private ILocator TitleValueLocator => Page.Locator(_searchTitleSelector);
-    private ILocator SubmitSearchLocator => Page.Locator(_submitSearchSelector);
-
+        return await _errorMessageLocator.TextContentAsync();
+    } 
 }

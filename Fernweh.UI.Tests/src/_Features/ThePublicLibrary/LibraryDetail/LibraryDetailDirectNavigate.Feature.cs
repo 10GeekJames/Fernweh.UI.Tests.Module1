@@ -19,14 +19,20 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "Smoke")]
+    [Xunit.TraitAttribute("Category", "smoke")]
+    [Xunit.TraitAttribute("Category", "thepubliclibrary")]
+    [Xunit.TraitAttribute("Category", "library")]
+    [Xunit.TraitAttribute("Category", "librarydetail")]
     public partial class LibraryDetailDirectNavigateExperienceFeature : object, Xunit.IClassFixture<LibraryDetailDirectNavigateExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Smoke"};
+                "smoke",
+                "thepubliclibrary",
+                "library",
+                "librarydetail"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -95,7 +101,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
             argumentsOfScenario.Add("library data key", libraryDataKey);
             argumentsOfScenario.Add("name", name);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can navigate to the library list page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
+#line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -105,10 +111,10 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
             else
             {
                 this.ScenarioStart();
-#line 9
+#line 8
         testRunner.Given(string.Format("we direct navigate to \"{0}\" detail page", libraryDataKey), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 10
+#line 9
         testRunner.And(string.Format("the library detail name is \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

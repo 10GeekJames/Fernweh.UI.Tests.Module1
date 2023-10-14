@@ -1,5 +1,4 @@
-@Smoke
-
+@smoke @thepubliclibrary @library @librarydetail
 Feature: LibraryDetailDirectNavigate Experience
     As a guest user
     I want to be able to see the library detail

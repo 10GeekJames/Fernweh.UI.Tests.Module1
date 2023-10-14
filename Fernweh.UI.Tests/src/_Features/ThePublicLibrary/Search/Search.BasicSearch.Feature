@@ -1,5 +1,4 @@
-@Smoke
-
+@smoke @thepubliclibrary @book @search
 Feature: Can search for books by ISBN, Author, Title
     As a guest user
     I want to be able to search for books by ISBN, Author, Title

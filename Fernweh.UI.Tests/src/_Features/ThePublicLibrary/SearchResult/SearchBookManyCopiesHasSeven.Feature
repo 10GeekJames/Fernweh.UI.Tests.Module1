@@ -1,4 +1,4 @@
-@test
+@smoke @thepubliclibrary @book @searchresult
 Feature: Search Grid ManyCopies Result has Seven
     
     Scenario: Can find 7 copies of the book many copies by isbn

@@ -3,7 +3,8 @@ namespace Fernweh.UITests.Features.ThePublicLibrary.BookDetail;
 
 public class BookDetailPage : BasePageObject
 {
-    private readonly static string _pagePath = "/thepubliclibrary/book-detail";
+    public readonly static string _pagePath = "/thepubliclibrary/book-detail";
+
     private ILocator _title => Page.GetByTestId("book-title");
     private ILocator _author => Page.GetByTestId("book-authors");
     private ILocator _categories => Page.GetByTestId("book-categories");

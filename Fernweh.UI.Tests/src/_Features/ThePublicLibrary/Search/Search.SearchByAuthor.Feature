@@ -1,4 +1,4 @@
-@Smoke @Author
+@smoke @thepubliclibrary @book @search @author
 Feature: Search by Author Experience
 
 Background: 
