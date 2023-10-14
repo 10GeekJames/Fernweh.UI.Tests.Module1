@@ -29,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="./../../Fernweh.Models/Fernweh.Models.csproj" />
-    <ProjectReference Include="./../../Fernweh.TestData/Fernweh.StaticTestData.csproj" />
+    <ProjectReference Include="./../../Fernweh.Models/src/Fernweh.Models.csproj" />
+    <ProjectReference Include="./../../Fernweh.TestData/src/Fernweh.StaticTestData.csproj" />
   </ItemGroup>
 
   <ItemGroup>

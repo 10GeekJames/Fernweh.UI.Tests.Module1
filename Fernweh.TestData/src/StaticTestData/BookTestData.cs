@@ -1,4 +1,4 @@
-namespace Fernweh.TestData.StaticTestData;
+namespace Fernweh.StaticTestData;
 public static class BookTestData
 {
     public static BookViewModel BookTheWildSide;

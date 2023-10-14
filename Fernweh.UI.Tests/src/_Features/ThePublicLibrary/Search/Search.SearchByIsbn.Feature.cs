@@ -22,7 +22,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
     [Xunit.TraitAttribute("Category", "smoke")]
     [Xunit.TraitAttribute("Category", "thepubliclibrary")]
     [Xunit.TraitAttribute("Category", "book")]
-    [Xunit.TraitAttribute("Category", "search")]
+    [Xunit.TraitAttribute("Category", "booksearch")]
     [Xunit.TraitAttribute("Category", "isbn")]
     public partial class SearchByISBNExperienceFeature : object, Xunit.IClassFixture<SearchByISBNExperienceFeature.FixtureData>, System.IDisposable
     {
@@ -33,7 +33,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
                 "smoke",
                 "thepubliclibrary",
                 "book",
-                "search",
+                "booksearch",
                 "isbn"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;

@@ -1,4 +1,4 @@
-namespace Fernweh.TestData.StaticTestData;
+namespace Fernweh.StaticTestData;
 public static class LibraryTestData
 {
     public static string FirstStreetLibraryName = "First Street Library";

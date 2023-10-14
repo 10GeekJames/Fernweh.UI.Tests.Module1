@@ -1,5 +1,4 @@
 namespace Fernweh.Models.Enums;
-
 public enum BookCondition
 {
     New,

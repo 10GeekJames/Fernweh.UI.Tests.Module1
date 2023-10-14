@@ -13,12 +13,10 @@ global using Microsoft.Extensions.Configuration;
 
 global using Xunit;
 
-global using Fernweh.Models;
 global using Fernweh.Models.Enums;
 global using Fernweh.Models.ViewModels;
 
-global using Fernweh.TestData;
-global using Fernweh.TestData.StaticTestData;
+global using Fernweh.StaticTestData;
 
 global using Fernweh.UITests;
 global using Fernweh.UITests.Configurations;

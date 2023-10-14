@@ -22,7 +22,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
     [Xunit.TraitAttribute("Category", "smoke")]
     [Xunit.TraitAttribute("Category", "thepubliclibrary")]
     [Xunit.TraitAttribute("Category", "book")]
-    [Xunit.TraitAttribute("Category", "searchresult")]
+    [Xunit.TraitAttribute("Category", "booksearchresult")]
     public partial class SearchGridManyCopiesResultHasSevenFeature : object, Xunit.IClassFixture<SearchGridManyCopiesResultHasSevenFeature.FixtureData>, System.IDisposable
     {
         
@@ -32,7 +32,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
                 "smoke",
                 "thepubliclibrary",
                 "book",
-                "searchresult"};
+                "booksearchresult"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         

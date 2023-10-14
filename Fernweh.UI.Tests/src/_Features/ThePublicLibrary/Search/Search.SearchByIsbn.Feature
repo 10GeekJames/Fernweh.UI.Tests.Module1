@@ -1,4 +1,4 @@
-@smoke @thepubliclibrary @book @search @isbn
+@smoke @thepubliclibrary @book @booksearch @isbn
 Feature: Search by ISBN Experience
 
 Background: 

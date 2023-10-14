@@ -1,4 +1,4 @@
-namespace Fernweh.TestData.StaticTestData;
+namespace Fernweh.StaticTestData;
 public static class AuthorTestData
 {
     public static NameVOViewModel AuthorJohnWriterName = new() { FirstName = "John", LastName = "Writer" };

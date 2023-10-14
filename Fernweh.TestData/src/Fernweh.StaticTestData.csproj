@@ -9,6 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="./../Fernweh.Models/Fernweh.Models.csproj" />
+    <ProjectReference Include="./../../Fernweh.Models/src/Fernweh.Models.csproj" />    
   </ItemGroup>
 </Project>

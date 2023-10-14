@@ -1,4 +1,4 @@
-@smoke @thepubliclibrary @book @searchresult
+@smoke @thepubliclibrary @book @booksearchresult
 Feature: Search Grid Interactions
     Scenario: Can see search results
         Given I navigate to the search result page
