@@ -27,6 +27,7 @@ public class BookDetailSteps : Steps
     [StepDefinition(@"I can see the book details for ""(.*)""")]
     public async Task ICanSeeTheBookDetailsFor(string isbn)
     {
+        // here we pull from the testing data out we put into the scenario context and use that to drive the assertions
         var bookDetails = _scenarioContext.Get<BookViewModel>(isbn);
         await _bookDetailPage.GotoAsync($"/{isbn}");
         (await _bookDetailPage.GetTitleAsync()).Should().Be(bookDetails.Title);

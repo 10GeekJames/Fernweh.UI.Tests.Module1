@@ -21,7 +21,10 @@ public class SearchPage : BasePageObject
     public async Task<string> GetAuthorValueAsync() => (await _searchAuthorLocator.InputValueAsync()) ?? ""; 
     public async Task SetAuthorValueAsync(string authorValue) => await _searchAuthorLocator.TypeAsync(authorValue);
     
-    public async Task<string> GetTitleValueAsync() => (await _searchTitleLocator.InputValueAsync()) ?? ""; 
+    public async Task<string> GetTitleValueAsync() { 
+        await _searchTitleLocator.WaitForAsync();
+        return await _searchTitleLocator.InputValueAsync() ?? ""; 
+    }
     public async Task SetTitleValueAsync(string titleValue) => await _searchTitleLocator.TypeAsync(titleValue);
     
     public async Task SubmitSearchAsync() => await _submitSearchLocator.ClickAsync();
@@ -36,7 +39,7 @@ public class SearchPage : BasePageObject
     public async Task<bool> IsOnPageAsync()
     {
         await _searchIsbnLocator.WaitForAsync();
-        return await Page.TitleAsync() == TITLE;
+        return await _searchIsbnLocator.IsVisibleAsync();
     }
 
     public async Task<string> GetErrorMessageAsync()

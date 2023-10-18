@@ -1,3 +1,4 @@
 {
-    "parallelizeAssembly": true
+    "parallelizeAssembly": false,
+    "maxParallelThreads": 1    
 }

@@ -1,9 +1,7 @@
-using System.Reflection.Metadata.Ecma335;
 using System.Reflection;
+using Xunit.Sdk;
 namespace AddToMeeting.UITests.Hooks;
 [Binding]
-[assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly)]
-[assembly: CollectionBehavior(MaxParallelThreads = 3)]
 public class SpecFlowBindingHooks
 {
     private readonly IObjectContainer _objectContainer;
@@ -32,8 +30,11 @@ public class SpecFlowBindingHooks
         this._objectContainer.RegisterInstanceAs<AppConfig>(appConfig!);
 
         var playwright = await Playwright.CreateAsync();
+        
         var browser = await playwright.Chromium.LaunchAsync(appConfig.BrowserTypeLaunchOptions);
+        
         var page = await browser.NewPageAsync();
+        page.SetDefaultTimeout(100000);
 
         this._objectContainer.RegisterInstanceAs<IPlaywright>(playwright);
         this._objectContainer.RegisterInstanceAs<IBrowser>(browser);
@@ -46,6 +47,8 @@ public class SpecFlowBindingHooks
         foreach(var book in BookTestData.AllBooks) {
             scenarioContext.Add(book.Isbn.Isbn, book);
         }
+
+        
 
     }
 

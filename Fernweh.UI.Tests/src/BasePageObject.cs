@@ -22,14 +22,35 @@ public abstract class BasePageObject
         BasePath = $"{appConfig.TestUrl}{BasePath}";
 
         Page.WaitForLoadStateAsync(LoadState.NetworkIdle).GetAwaiter().GetResult();
+        Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded).GetAwaiter().GetResult();
+        Page.WaitForLoadStateAsync(LoadState.Load).GetAwaiter().GetResult();
+
+        //var isReady = IsReady().GetAwaiter().GetResult();
+
         var loadingIndicatorCheckCount = 0;
         var loadingIndicatorIsVisible = Page.IsVisibleAsync(_loadingDataSelector).GetAwaiter().GetResult();
+
         while (loadingIndicatorIsVisible || loadingIndicatorCheckCount > 20)
         {
             Thread.Sleep(300);
             loadingIndicatorIsVisible = Page.IsVisibleAsync(_loadingDataSelector).GetAwaiter().GetResult();
             loadingIndicatorCheckCount++;
         }
+    }
+
+    public async Task<bool> IsReady()
+    {
+        var wasmHasLoaded = await Page.EvaluateAsync<bool>("window.wasmHasLoaded");
+
+        Console.WriteLine($"wasmHasLoaded: {wasmHasLoaded}");
+        while (wasmHasLoaded != true)
+        {
+            wasmHasLoaded = await Page.EvaluateAsync<bool>("window.wasmHasLoaded");
+            await Task.Delay(400);
+            Console.WriteLine($"wasmHasLoaded: {wasmHasLoaded}");
+        }
+
+        return true;
     }
 
     public async Task<string> GetTitleAsync()
@@ -41,6 +62,8 @@ public abstract class BasePageObject
     public async Task GotoAsync(string append = "")
     {
         await Page.GotoAsync($"{BasePath}{PagePath}{append}");
+        await IsReady();
+        await Task.Delay(1000);
     }
 
     public string GetURL()
@@ -72,11 +95,11 @@ public abstract class BasePageObject
 
     protected async Task<int> GetRowIndexAsync(ILocator table, int columnIndex, string value)
     {
-        if(columnIndex < 0) throw new ArgumentOutOfRangeException(nameof(columnIndex));
+        if (columnIndex < 0) throw new ArgumentOutOfRangeException(nameof(columnIndex));
 
         var rowsLocator = await GetTableRowsLocatorAsync(table);
         await rowsLocator.First.WaitForAsync();
-        
+
         var rows = await rowsLocator.AllAsync();
         var rowIndex = 0;
         foreach (var row in rows)
@@ -91,25 +114,25 @@ public abstract class BasePageObject
 
     protected async Task<string> GetTableRowColumnValueAsync(ILocator table, int rowIndex, int columnIndex)
     {
-        if(rowIndex < 0) throw new ArgumentOutOfRangeException(nameof(rowIndex));
-        if(columnIndex < 0) throw new ArgumentOutOfRangeException(nameof(columnIndex));
-        
+        if (rowIndex < 0) throw new ArgumentOutOfRangeException(nameof(rowIndex));
+        if (columnIndex < 0) throw new ArgumentOutOfRangeException(nameof(columnIndex));
+
         var tableRows = await GetTableRowsLocatorAsync(table);
         await tableRows.First.WaitForAsync();
-        
+
         var rows = await tableRows.AllAsync();
         var row = rows[rowIndex];
         var col = (await GetTableColsLocatorAsync(row)).Nth(columnIndex);
 
         var colText = await col.InnerTextAsync();
-        
+
         return colText;
     }
 
     protected async Task<string[]> TableGetRow(ILocator table, int rowIndex)
     {
-        if(rowIndex < 0) throw new ArgumentOutOfRangeException(nameof(rowIndex));
-        
+        if (rowIndex < 0) throw new ArgumentOutOfRangeException(nameof(rowIndex));
+
         var tableRowsLocator = await GetTableRowsLocatorAsync(table);
         await tableRowsLocator.First.WaitForAsync();
 

@@ -15,7 +15,7 @@ public class CounterPage : BasePageObject {
     
     public async Task<bool> IsOnPageAsync() {
         await CounterValueLocator.WaitForAsync();
-        return await Page.IsVisibleAsync(_counterValueSelector);
+        return await CounterValueLocator.IsVisibleAsync();
     }
 
     private ILocator CounterValueLocator => Page.Locator(_counterValueSelector);
