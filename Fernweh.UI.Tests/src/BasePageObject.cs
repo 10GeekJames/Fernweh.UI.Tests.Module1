@@ -38,19 +38,18 @@ public abstract class BasePageObject
         }
     }
 
-    public async Task<bool> IsReady()
+    public async Task<bool> IsBlazorWasmReady()
     {
         var wasmHasLoaded = await Page.EvaluateAsync<bool>("window.wasmHasLoaded");
-
-        Console.WriteLine($"wasmHasLoaded: {wasmHasLoaded}");
-        while (wasmHasLoaded != true)
+        var retryCount = 0;
+        
+        while (wasmHasLoaded != true && ++retryCount < 30)
         {
             wasmHasLoaded = await Page.EvaluateAsync<bool>("window.wasmHasLoaded");
             await Task.Delay(400);
-            Console.WriteLine($"wasmHasLoaded: {wasmHasLoaded}");
         }
 
-        return true;
+        return wasmHasLoaded;
     }
 
     public async Task<string> GetTitleAsync()
@@ -62,7 +61,7 @@ public abstract class BasePageObject
     public async Task GotoAsync(string append = "")
     {
         await Page.GotoAsync($"{BasePath}{PagePath}{append}");
-        await IsReady();
+        await IsBlazorWasmReady();
         await Task.Delay(1000);
     }
 
@@ -73,7 +72,7 @@ public abstract class BasePageObject
 
     protected async Task<string[]> TableGetColumnNamesAsync(ILocator table)
     {
-        var tableHeaderColumns = await GetTableHeaderColsLocatorAsync(table);
+        var tableHeaderColumns = GetTableHeaderColsLocatorAsync(table);
         await tableHeaderColumns.First.WaitForAsync();
 
         var headers = new List<string>();
@@ -97,7 +96,7 @@ public abstract class BasePageObject
     {
         if (columnIndex < 0) throw new ArgumentOutOfRangeException(nameof(columnIndex));
 
-        var rowsLocator = await GetTableRowsLocatorAsync(table);
+        var rowsLocator = GetTableRowsLocatorAsync(table);
         await rowsLocator.First.WaitForAsync();
 
         var rows = await rowsLocator.AllAsync();
@@ -117,7 +116,7 @@ public abstract class BasePageObject
         if (rowIndex < 0) throw new ArgumentOutOfRangeException(nameof(rowIndex));
         if (columnIndex < 0) throw new ArgumentOutOfRangeException(nameof(columnIndex));
 
-        var tableRows = await GetTableRowsLocatorAsync(table);
+        var tableRows = GetTableRowsLocatorAsync(table);
         await tableRows.First.WaitForAsync();
 
         var rows = await tableRows.AllAsync();
@@ -133,7 +132,7 @@ public abstract class BasePageObject
     {
         if (rowIndex < 0) throw new ArgumentOutOfRangeException(nameof(rowIndex));
 
-        var tableRowsLocator = await GetTableRowsLocatorAsync(table);
+        var tableRowsLocator = GetTableRowsLocatorAsync(table);
         await tableRowsLocator.First.WaitForAsync();
 
         var rows = await tableRowsLocator.AllAsync();
@@ -142,7 +141,7 @@ public abstract class BasePageObject
         return rowText.Split("\n");
     }
 
-    private async Task<ILocator> GetTableHeaderColsLocatorAsync(ILocator table) => table.Locator(_tableHeaderColsSelector);
-    private async Task<ILocator> GetTableRowsLocatorAsync(ILocator table) => table.Locator(_tableRowsSelector);
-    private async Task<ILocator> GetTableColsLocatorAsync(ILocator tableRow) => tableRow.Locator(_tableColsSelector);
+    private ILocator GetTableHeaderColsLocatorAsync(ILocator table) => table.Locator(_tableHeaderColsSelector);
+    private ILocator GetTableRowsLocatorAsync(ILocator table) => table.Locator(_tableRowsSelector);
+    private ILocator GetTableColsLocatorAsync(ILocator tableRow) => tableRow.Locator(_tableColsSelector);
 }

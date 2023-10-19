@@ -5,7 +5,7 @@ public class FernwehHomePage : BasePageObject
 {
     public readonly static string TITLE = "Fernweh";    
     public readonly static string _pagePath = "";    
-    private ILocator _fernwehTitleValueLocator => Page.GetByTestId("title");    
+    private ILocator _fernwehTitleValueLocator => Page.GetByTestId("title");
     
     public FernwehHomePage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
     
