@@ -17,6 +17,13 @@ playwright install
 dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 ```
 
+## Start by running all the tests against qa
+
+```text
+.\Fernweh.UI.Tests\src\test.bat
+.\Fernweh.UI.Tests\src\reports.bat
+```
+
 ## Running a specific test
 
 ```text
