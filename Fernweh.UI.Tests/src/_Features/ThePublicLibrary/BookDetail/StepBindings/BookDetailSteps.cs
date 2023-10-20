@@ -30,7 +30,7 @@ public class BookDetailSteps : Steps
         // here we pull from the testing data out we put into the scenario context and use that to drive the assertions
         var bookDetails = _scenarioContext.Get<BookViewModel>(isbn);
         await _bookDetailPage.GotoAsync($"/{isbn}");
-        (await _bookDetailPage.GetTitleAsync()).Should().Be(bookDetails.Title);
+        (await _bookDetailPage.GetPageHeaderAsync()).Should().Be(bookDetails.Title);
         (await _bookDetailPage.GetAuthorAsync()).Should().Be(bookDetails.AuthorsList);
         (await _bookDetailPage.GetCategoriesAsync()).Should().Be(bookDetails.CategoriesList);
         (await _bookDetailPage.GetDescriptionAsync()).Should().Be(bookDetails.Description);

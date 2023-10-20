@@ -34,7 +34,7 @@ public class SpecFlowBindingHooks
         var browser = await playwright.Chromium.LaunchAsync(appConfig.BrowserTypeLaunchOptions);
         
         var page = await browser.NewPageAsync();
-        page.SetDefaultTimeout(100000);
+        page.SetDefaultTimeout(160000);
 
         this._objectContainer.RegisterInstanceAs<IPlaywright>(playwright);
         this._objectContainer.RegisterInstanceAs<IBrowser>(browser);

@@ -37,7 +37,7 @@ public class LibraryListSteps : Steps
         _scenarioContext.Add("LibraryUnderTest", libraryUnderTest);        
     } 
     [StepDefinition(@"we can see the library listed as ""(.*)""")]
-    public async Task WeCanSeeTheLibraryListedAs(string libraryName)
+    public void WeCanSeeTheLibraryListedAs(string libraryName)
     {
         var libraryUnderTest = _scenarioContext.Get<string>("LibraryUnderTest");
         libraryUnderTest.Should().Be(libraryName);

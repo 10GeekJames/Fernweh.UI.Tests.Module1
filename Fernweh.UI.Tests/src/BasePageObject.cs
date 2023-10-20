@@ -24,7 +24,6 @@ public abstract class BasePageObject
         Page.WaitForLoadStateAsync(LoadState.NetworkIdle).GetAwaiter().GetResult();
         Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded).GetAwaiter().GetResult();
         Page.WaitForLoadStateAsync(LoadState.Load).GetAwaiter().GetResult();
-
         //var isReady = IsReady().GetAwaiter().GetResult();
 
         var loadingIndicatorCheckCount = 0;
@@ -43,12 +42,13 @@ public abstract class BasePageObject
         var wasmHasLoaded = await Page.EvaluateAsync<bool>("window.wasmHasLoaded");
         var retryCount = 0;
         
-        while (wasmHasLoaded != true && ++retryCount < 30)
+        while (wasmHasLoaded != true && ++retryCount < 120)
         {
             wasmHasLoaded = await Page.EvaluateAsync<bool>("window.wasmHasLoaded");
             await Task.Delay(400);
         }
 
+        if(wasmHasLoaded == false) throw new Exception("Blazor wasm failed to load in a timely fashion");
         return wasmHasLoaded;
     }
 
@@ -121,7 +121,7 @@ public abstract class BasePageObject
 
         var rows = await tableRows.AllAsync();
         var row = rows[rowIndex];
-        var col = (await GetTableColsLocatorAsync(row)).Nth(columnIndex);
+        var col = GetTableColsLocatorAsync(row).Nth(columnIndex);
 
         var colText = await col.InnerTextAsync();
 

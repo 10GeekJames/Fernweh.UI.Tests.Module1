@@ -5,7 +5,7 @@ public class BookDetailPage : BasePageObject
 {
     public readonly static string _pagePath = "/thepubliclibrary/book-detail";
 
-    private ILocator _title => Page.GetByTestId("book-title");
+    private ILocator _pageHeader => Page.GetByTestId("book-title");
     private ILocator _author => Page.GetByTestId("book-authors");
     private ILocator _categories => Page.GetByTestId("book-categories");
     private ILocator _description => Page.GetByTestId("book-description");
@@ -13,16 +13,15 @@ public class BookDetailPage : BasePageObject
     private ILocator _copiesAvailable => Page.GetByTestId("book-available-copies");
     private ILocator _publishDate => Page.GetByTestId("book-published-date");
 
-
     public BookDetailPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
 
-    public async Task<string> GetTitleAsync() => await _title.TextContentAsync();
-    public async Task<string> GetAuthorAsync() => await _author.TextContentAsync();
-    public async Task<string> GetCategoriesAsync() => await _categories.TextContentAsync();
-    public async Task<string> GetDescriptionAsync() => await _description.TextContentAsync();
-    public async Task<int> GetCopiesTotalAsync() => int.Parse(await _copiesTotal.TextContentAsync());
-    public async Task<int> GetCopiesAvailableAsync() => int.Parse(await _copiesAvailable.TextContentAsync());
-    public async Task<string> GetPublishDateAsync() => await _publishDate.TextContentAsync();
+    public async Task<string?> GetPageHeaderAsync() => await _pageHeader.TextContentAsync();
+    public async Task<string?> GetAuthorAsync() => await _author.TextContentAsync();
+    public async Task<string?> GetCategoriesAsync() => await _categories.TextContentAsync();
+    public async Task<string?> GetDescriptionAsync() => await _description.TextContentAsync();
+    public async Task<int?> GetCopiesTotalAsync() => int.Parse(await _copiesTotal.TextContentAsync() ?? "-1" );
+    public async Task<int> GetCopiesAvailableAsync() => int.Parse(await _copiesAvailable.TextContentAsync() ?? "-1");
+    public async Task<string?> GetPublishDateAsync() => await _publishDate.TextContentAsync();
 
     public async Task<bool> IsOnPageAsync()
     {
