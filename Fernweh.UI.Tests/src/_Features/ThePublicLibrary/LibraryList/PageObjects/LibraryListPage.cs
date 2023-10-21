@@ -3,7 +3,7 @@ namespace Fernweh.UITests.Features.ThePublicLibrary.LibraryDetail;
 
 public class LibraryListPage : BasePageObject
 {
-    public readonly static string _pagePath = "/thepubliclibrary/alllibrarys";
+    public readonly static string _pagePath = "/thepubliclibrary/alllibrarys"; // www.fernwehs.com/thepubliclibrary/alllibrarys
 
     private ILocator _libraryListTitleLocator => Page.Locator("#all-librarys-static-table-header");
     private ILocator _libraryListLocator => Page.Locator("#all-librarys-static-table");    
@@ -23,8 +23,8 @@ public class LibraryListPage : BasePageObject
     
     public async Task<bool> IsOnPageAsync()
     {   
-        _libraryListTitleLocator.WaitForAsync();
-        return (await _libraryListTitleLocator.IsVisibleAsync());
+        await _libraryListTitleLocator.WaitForAsync();
+        return await _libraryListTitleLocator.IsVisibleAsync();
     }
 
     //private ILocator SelectLibraryLocator (string libraryName) => Page.Locator($"a:has-text('{libraryName}')");
