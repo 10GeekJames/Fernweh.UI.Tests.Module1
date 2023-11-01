@@ -28,6 +28,4 @@ public class LibraryListPage : BasePageObject
     }
 
     private ILocator SelectLibraryLocator (string libraryName) => Page.Locator($"a:has-text('{libraryName}')");
-    //cut-1 private ILocator SelectLibraryLocator (string libraryName) => Page.GetByTestId(libraryName);
-
 }

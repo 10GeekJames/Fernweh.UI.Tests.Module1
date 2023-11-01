@@ -6,7 +6,6 @@ Background:
 
 Scenario: Search for a book by Name
     When I search for "", "book", ""
-    #cut-3 And I submit the search    
     Then I am on the search result page
 
 Scenario: Search for a book by invalid Name

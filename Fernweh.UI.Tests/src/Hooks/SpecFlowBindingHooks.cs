@@ -46,7 +46,7 @@ public class SpecFlowBindingHooks
         this._objectContainer.RegisterInstanceAs<IBrowserContext>(context);
 
         var page = await context.NewPageAsync();
-        page.SetDefaultTimeout(160000);
+        page.SetDefaultTimeout(100000);
 
 
         this._objectContainer.RegisterInstanceAs<IPlaywright>(playwright);
