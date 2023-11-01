@@ -7,7 +7,6 @@ public class SearchPage : BasePageObject
     private readonly static string _pagePath = "/thepubliclibrary/search";
     
     private ILocator _searchIsbnLocator => Page.Locator("#search-isbn-value");
-    private ILocator _searchAuthorLocator => Page.Locator("#search-author-value");
     private ILocator _searchTitleLocator => Page.Locator("#search-title-value");
     private ILocator _submitSearchLocator => Page.Locator("#search-submit");
     private ILocator _errorMessageLocator => Page.Locator("#search-error-message");
@@ -29,19 +28,16 @@ public class SearchPage : BasePageObject
     public async Task SubmitSearchAsync() => await _submitSearchLocator.ClickAsync();
         
     public async Task<string> GetIsbnValueAsync() => (await _searchIsbnLocator.InputValueAsync()) ?? ""; 
-    public async Task<string> GetAuthorValueAsync() => (await _searchAuthorLocator.InputValueAsync()) ?? ""; 
     public async Task<string> GetTitleValueAsync() { 
         await _searchTitleLocator.WaitForAsync();
         return await _searchTitleLocator.InputValueAsync() ?? ""; 
     }    
     
     public async Task SetIsbnValueAsync(string isbnValue) => await _searchIsbnLocator.TypeAsync(isbnValue);    
-    public async Task SetAuthorValueAsync(string authorValue) => await _searchAuthorLocator.TypeAsync(authorValue);
     public async Task SetTitleValueAsync(string titleValue) => await _searchTitleLocator.TypeAsync(titleValue);
-    public async Task SetValuesAsync(string isbnValue, string authorValue, string titleValue)
+    public async Task SetValuesAsync(string isbnValue, string titleValue)
     {
         await SetIsbnValueAsync(isbnValue);
-        await SetAuthorValueAsync(authorValue);
         await SetTitleValueAsync(titleValue);
     }    
 }

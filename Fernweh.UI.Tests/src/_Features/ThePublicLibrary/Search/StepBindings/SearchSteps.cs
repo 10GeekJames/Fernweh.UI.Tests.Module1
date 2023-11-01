@@ -23,24 +23,23 @@ public class SearchSteps : Steps
         (await _searchPage.IsOnPageAsync()).Should().BeTrue();
     }
 
-    [StepDefinition(@"I search for ""(.*)"", ""(.*)"", ""(.*)""")]
-    public async Task WeSearchFor(string isbnValue, string authorValue, string titleValue)
+    [StepDefinition(@"I search for ""(.*)"", ""(.*)""")]
+    public async Task WeSearchFor(string isbnValue, string titleValue)
     {
-        await _searchPage.SetValuesAsync(isbnValue, authorValue, titleValue);
+        await _searchPage.SetValuesAsync(isbnValue, titleValue);
     }
     
-    [StepDefinition(@"I auto search for ""(.*)"", ""(.*)"", ""(.*)""")]
-    public async Task WeAutoSearchFor(string isbnValue, string authorValue, string titleValue)
+    [StepDefinition(@"I auto search for ""(.*)"", ""(.*)""")]
+    public async Task WeAutoSearchFor(string isbnValue, string titleValue)
     {
-        await _searchPage.SetValuesAsync(isbnValue, authorValue, titleValue);
+        await _searchPage.SetValuesAsync(isbnValue, titleValue);
         await _searchPage.SubmitSearchAsync();
     }
 
-    [StepDefinition(@"the search values are ""(.*)"", ""(.*)"", ""(.*)""")]
-    public async Task TheSearchValuesAre(string isbnValue, string authorValue, string titleValue)
+    [StepDefinition(@"the search values are ""(.*)"", ""(.*)""")]
+    public async Task TheSearchValuesAre(string isbnValue, string titleValue)
     {
         (await _searchPage.GetIsbnValueAsync()).Should().Be(isbnValue);
-        (await _searchPage.GetAuthorValueAsync()).Should().Be(authorValue);
         (await _searchPage.GetTitleValueAsync()).Should().Be(titleValue);
     }
     
