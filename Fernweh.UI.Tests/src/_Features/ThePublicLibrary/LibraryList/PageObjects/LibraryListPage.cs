@@ -7,27 +7,27 @@ public class LibraryListPage : BasePageObject
 
     private ILocator _libraryListTitleLocator => Page.Locator("#all-librarys-static-table-header");
     private ILocator _libraryListLocator => Page.Locator("#all-librarys-static-table");    
-    
+
     public LibraryListPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
-    
-    
-    public async Task SelectLibraryByName(string libraryName) { 
+        
+    public async Task SelectLibraryByNameAsync(string libraryName) { 
         var libraryLocator = SelectLibraryLocator(libraryName);
-        await libraryLocator.ClickAsync();
+        var libraryLinkFromCardLocator = libraryLocator.Locator("a");
+        await libraryLinkFromCardLocator.ClickAsync();
     }
-    public async Task<string> GetLibraryNameByName(string libraryName)
+    public async Task<string> GetLibraryNameFromCardAsync(string libraryName)
     {
         var libraryLocator = SelectLibraryLocator(libraryName);
-        return await libraryLocator.TextContentAsync() ?? string.Empty;        
+        var libraryNameFromCardLocator = libraryLocator.Locator("h4");
+        return await libraryNameFromCardLocator.TextContentAsync() ?? string.Empty;        
     }
-    
     public async Task<bool> IsOnPageAsync()
     {   
-        _libraryListTitleLocator.WaitForAsync();
-        return (await _libraryListTitleLocator.IsVisibleAsync());
+        await _libraryListTitleLocator.WaitForAsync();
+        return await _libraryListTitleLocator.IsVisibleAsync();
     }
 
-    //private ILocator SelectLibraryLocator (string libraryName) => Page.Locator($"a:has-text('{libraryName}')");
-    private ILocator SelectLibraryLocator (string libraryName) => Page.GetByTestId(libraryName);
+    private ILocator SelectLibraryLocator (string libraryName) => Page.Locator($"a:has-text('{libraryName}')");
+    //cut-1 private ILocator SelectLibraryLocator (string libraryName) => Page.GetByTestId(libraryName);
 
 }

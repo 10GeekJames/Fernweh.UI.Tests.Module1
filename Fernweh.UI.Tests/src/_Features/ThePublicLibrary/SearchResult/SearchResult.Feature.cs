@@ -110,7 +110,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.SearchResult
         testRunner.Given("I navigate to the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
-        testRunner.Then("I should see search page results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("I see search page results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

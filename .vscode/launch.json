@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Fernweh.UITests",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-Fernweh.UITests",
+            "program": "${workspaceFolder}/Fernweh.UI.Tests/src/bin/Debug/net7.0/Fernweh.UITests.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Fernweh.UI.Tests/src",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        }
+    ]
+}

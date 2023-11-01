@@ -5,7 +5,7 @@ Feature: LibraryDetailDirectNavigate Experience
     So that I can find out more about the library
 
     Scenario Outline: I can navigate to the library list page
-        Given we direct navigate to "<library data key>" detail page
+        Given I direct navigate to "<library data key>" detail page
         And the library detail name is "<name>"
 
         Examples:

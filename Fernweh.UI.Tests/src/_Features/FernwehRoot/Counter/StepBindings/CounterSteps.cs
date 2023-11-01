@@ -10,20 +10,20 @@ public class CounterSteps : Steps
         _counterPage = counterPage;
     }
 
-    [StepDefinition(@"we navigate to the counter page")]
-    public async Task GivenWeNavigateToTheCounterPage()
+    [StepDefinition(@"I navigate to the counter page")]
+    public async Task GivenINavigateToTheCounterPage()
     {
         await _counterPage.GotoAsync();
     }
 
-    [StepDefinition(@"we click the increment button")]
+    [StepDefinition(@"I click the increment button")]
     public async Task WeClickTheIncrementButton()
     {
         await _counterPage.IncrementValueAsync();
     }
 
-    [StepDefinition(@"we are on the counter page")]
-    public async Task WeAreOnTheCounterPage()
+    [StepDefinition(@"I am on the counter page")]
+    public async Task IAmOnTheCounterPage()
     {
         (await _counterPage.IsOnPageAsync()).Should().BeTrue();
     }

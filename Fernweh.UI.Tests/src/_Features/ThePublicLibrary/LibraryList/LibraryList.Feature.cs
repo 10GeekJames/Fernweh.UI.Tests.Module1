@@ -23,7 +23,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
     [Xunit.TraitAttribute("Category", "thepubliclibrary")]
     [Xunit.TraitAttribute("Category", "library")]
     [Xunit.TraitAttribute("Category", "librarylist")]
-    public partial class LibraryListsExperienceFeature : object, Xunit.IClassFixture<LibraryListsExperienceFeature.FixtureData>, System.IDisposable
+    public partial class LibraryListExperienceFeature : object, Xunit.IClassFixture<LibraryListExperienceFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -39,7 +39,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
 #line 1 "LibraryList.Feature"
 #line hidden
         
-        public LibraryListsExperienceFeature(LibraryListsExperienceFeature.FixtureData fixtureData, Fernweh_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public LibraryListExperienceFeature(LibraryListExperienceFeature.FixtureData fixtureData, Fernweh_UITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -48,7 +48,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryList", "LibraryLists Experience", "    As a guest user\r\n    I want to be able to see a list of libraries\r\n    So tha" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "_Features/ThePublicLibrary/LibraryList", "LibraryList Experience", "    As a guest user\r\n    I want to be able to see a list of libraries\r\n    So tha" +
                     "t I can find out more about them", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -87,9 +87,9 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
         public virtual void FeatureBackground()
         {
 #line 7
-#line hidden
+    #line hidden
 #line 8
-    testRunner.Given("we navigate to the library list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("I navigate to the library list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -98,19 +98,19 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryList
             this.TestTearDown();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="I can navigate to the library list page")]
-        [Xunit.TraitAttribute("FeatureTitle", "LibraryLists Experience")]
-        [Xunit.TraitAttribute("Description", "I can navigate to the library list page")]
+        [Xunit.SkippableTheoryAttribute(DisplayName="I see a library in the list of libraries")]
+        [Xunit.TraitAttribute("FeatureTitle", "LibraryList Experience")]
+        [Xunit.TraitAttribute("Description", "I see a library in the list of libraries")]
         [Xunit.InlineDataAttribute("First Street Library", new string[0])]
         [Xunit.InlineDataAttribute("Second Street Library", new string[0])]
-        public void ICanNavigateToTheLibraryListPage(string libraryName, string[] exampleTags)
+        public void ISeeALibraryInTheListOfLibraries(string libraryName, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("library name", libraryName);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can navigate to the library list page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I see a library in the list of libraries", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 10
-this.ScenarioInitialize(scenarioInfo);
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -120,10 +120,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
-this.FeatureBackground();
+    this.FeatureBackground();
 #line hidden
 #line 11
-    testRunner.When(string.Format("we search for the library listed as \"{0}\"", libraryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.Then(string.Format("I see library \"{0}\" is listed", libraryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -136,12 +136,12 @@ this.FeatureBackground();
             
             public FixtureData()
             {
-                LibraryListsExperienceFeature.FeatureSetup();
+                LibraryListExperienceFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                LibraryListsExperienceFeature.FeatureTearDown();
+                LibraryListExperienceFeature.FeatureTearDown();
             }
         }
     }

@@ -12,34 +12,28 @@ public class LibraryListSteps : Steps
         _scenarioContext = scenarioContext;
     }
 
-    [StepDefinition(@"we navigate to the library list page")]
-    public async Task WeNavigateToTheLibraryListPage()
+    [StepDefinition(@"I navigate to the library list page")]
+    public async Task INavigateToTheLibraryListPage()
     {
         await _libraryListPage.GotoAsync();
     }
 
-    [StepDefinition(@"we select the library by name ""(.*)""")]
-    public async Task WeSelectTheLibraryByName(string libraryName)
+    [StepDefinition(@"I select the library by name ""(.*)""")]
+    public async Task ISelectTheLibraryByName(string libraryName)
     {
-        await _libraryListPage.SelectLibraryByName(libraryName);
+        await _libraryListPage.SelectLibraryByNameAsync(libraryName);
     }
 
-    [StepDefinition(@"we are on the library list page")]
-    public async Task WeAreOnTheLibraryListPage()
+    [StepDefinition(@"I am on the library list page")]
+    public async Task IAmOnTheLibraryListPage()
     {
         (await _libraryListPage.IsOnPageAsync()).Should().BeTrue();
     }
 
-    [StepDefinition(@"we search for the library listed as ""(.*)""")]
-    public async Task WeSearchForTheLibraryListedAs(string libraryName)
+    [StepDefinition(@"I see library ""(.*)"" is listed")]
+    public async Task ISeeLibraryIsListed(string libraryName)
     {
-        var libraryUnderTest = await _libraryListPage.GetLibraryNameByName(libraryName);
-        _scenarioContext.Add("LibraryUnderTest", libraryUnderTest);        
-    } 
-    [StepDefinition(@"we can see the library listed as ""(.*)""")]
-    public void WeCanSeeTheLibraryListedAs(string libraryName)
-    {
-        var libraryUnderTest = _scenarioContext.Get<string>("LibraryUnderTest");
-        libraryUnderTest.Should().Be(libraryName);
-    } 
+        var libraryNameFromCard = await _libraryListPage.GetLibraryNameFromCardAsync(libraryName);
+        libraryNameFromCard.Should().Be(libraryName);
+    }    
 }

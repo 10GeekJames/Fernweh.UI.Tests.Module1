@@ -49,10 +49,11 @@ public abstract class BasePageObject
         }
 
         if(wasmHasLoaded == false) throw new Exception("Blazor wasm failed to load in a timely fashion");
+        
         return wasmHasLoaded;
     }
 
-    public async Task<string> GetTitleAsync()
+    public async Task<string> GetPageTitleAsync()
     {
         await Task.Yield();
         return await Page.TitleAsync();

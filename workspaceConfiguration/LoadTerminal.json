@@ -1,0 +1,19 @@
+{
+    "version": "1.2.1",
+    "groups": [
+        {
+            "name": "Test Runner Group",
+            "enabled": true,
+            "terminals": [
+                {
+                    "name": "test runner",
+                    "path": ".\\Fernweh.UI.Tests\\src",
+                    "cmd": [
+                        "test"
+                    ],
+                    "num": 0
+                }
+            ]
+        }
+    ]
+}

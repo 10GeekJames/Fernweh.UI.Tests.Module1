@@ -11,33 +11,33 @@ public class SearchResultSteps : Steps
     }
 
     [StepDefinition(@"I navigate to the search result page")]
-    public async Task WeNavigateToTheSearchResultPage()
+    public async Task INavigateToTheSearchResultPage()
     {
         await _searchResultPage.GotoAsync();
     }
 
     [StepDefinition(@"I am on the search result page")]
-    public async Task WeAreOnTheSearchResultPage()
+    public async Task IAmOnTheSearchResultPage()
     {   
         (await _searchResultPage.IsOnPageAsync()).Should().BeTrue();
-        (await _searchResultPage.GetTitleAsync()).Should().Be(SearchResultPage.TITLE);
+        (await _searchResultPage.GetPageTitleAsync()).Should().Be(SearchResultPage.TITLE);
     }
     
-    [StepDefinition(@"I should see search page results")]
-    public async Task IShouldSeeSearchPageResults()
+    [StepDefinition(@"I see search page results")]
+    public async Task ISeeSearchPageResults()
     {   
         var rowCount = await _searchResultPage.GetRowCountAsync();
         rowCount.Should().BeGreaterThan(0);
     }
 
     [StepDefinition(@"I find the row containing isbn ""(.*)""")]
-    public async Task IShouldSeeSearchPageResults(string isbn)
+    public async Task ISeeSearchPageResults(string isbn)
     {   
         var isbnColumnIndex = await _searchResultPage.GetBookCountByIsbn(isbn);
     }
 
-    [StepDefinition(@"I can see ""(\d+)"" results for book isbn ""(.*)""")]
-    public async Task IShouldSeeSearchPageResults(int expectedCount, string bookIsbn)
+    [StepDefinition(@"I see ""(\d+)"" results for book isbn ""(.*)""")]
+    public async Task ISeeSearchPageResults(int expectedCount, string bookIsbn)
     {   
         var count = await _searchResultPage.GetBookCountByIsbn(bookIsbn);
         count.Should().Be(expectedCount);

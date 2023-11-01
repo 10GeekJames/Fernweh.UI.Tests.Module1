@@ -1,3 +1,5 @@
+using FluentAssertions.Equivalency;
+
 namespace Fernweh.UITests.Features.ThePublicLibrary.LibraryDetail;
 
 [Binding]
@@ -12,22 +14,22 @@ public class LibraryDetailSteps : Steps
         _scenarioContext = scenarioContext;
     }
 
-    [StepDefinition(@"we navigate to the library detail page")]
-    public async Task WeNavigateToTheLibraryDetailPage()
+    [StepDefinition(@"I navigate to the library detail page")]
+    public async Task INavigateToTheLibraryDetailPage()
     {
         await _libraryDetailPage.GotoAsync();
     }
 
-    
-    [StepDefinition(@"we direct navigate to ""(.*)"" detail page")]
+
+    [StepDefinition(@"I direct navigate to ""(.*)"" detail page")]
     public async Task WeDirectNavigateToTheNamedLibraryDetailPageUsing(string namedLibraryInDataset)
     {
         var libraryId = _scenarioContext.Get<Guid>(namedLibraryInDataset);
-        await _libraryDetailPage.GotoByIdAsync(libraryId.ToString());
+        await _libraryDetailPage.GotoAsync($"/{namedLibraryInDataset}");
     }
-    
-    [StepDefinition(@"we are on the library detail page")]
-    public async Task WeAreOnTheLibraryDetailPage()
+
+    [StepDefinition(@"I am on the library detail page")]
+    public async Task IAmOnTheLibraryDetailPage()
     {
         (await _libraryDetailPage.IsOnPageAsync()).Should().BeTrue();
     }
@@ -42,50 +44,38 @@ public class LibraryDetailSteps : Steps
     [StepDefinition(@"the library detail advertisment content is ""(.*)""")]
     public async Task TheLibraryDetailAdvertismentContentIs(string advertismentContent)
     {
-        var advertismentContentUT = await _libraryDetailPage.GetAdvertismentContentAsync();    
+        var advertismentContentUT = await _libraryDetailPage.GetAdvertismentContentAsync();
         advertismentContentUT.Should().Be(advertismentContent);
     }
 
-    [StepDefinition(@"the library detail open hours is ""(.*)""")]
-    public async Task TheLibraryDetailOpenHoursAre(string openHours)
+    // Using these patterns to reduce noise and make the tests more declarative for the feature file, 
+    // just be careful you don't overburden the step definition with logic, just focus on assertions and error handling
+    [StepDefinition(@"I see the library has the correct details for ""(.*)""")]
+    public async Task ISeeTheLibraryHasTheCorrectDetailsFor(string libraryName)
     {
-        var openHoursUT = await _libraryDetailPage.GetOpenTimeAsync();
-        openHoursUT.Should().Be(openHours);
-    }
-    
-    [StepDefinition(@"the library detail close hours is ""(.*)""")]
-    public async Task TheLibraryDetailCloseHoursAre(string closeHours)
-    {
-        var closeHoursUT = await _libraryDetailPage.GetCloseTimeAsync();
-        closeHoursUT.Should().Be(closeHours);
-    }
-    
-    [StepDefinition(@"the library detail notes is ""(.*)""")]
-    public async Task TheLibraryDetailNotesAre(string notes)
-    {
-        var notesUT = await _libraryDetailPage.GetNotesAsync();
-        notesUT.Should().Be(notes);
-    }
-
-    [StepDefinition(@"the library detail primary phone is ""(.*)""")]
-    public async Task TheLibraryDetailPrimaryPhoneIs(string phone)
-    {
-        var phoneUT = await _libraryDetailPage.GetPrimaryPhoneAsync();
-        phone.Should().Be(phone);
-    }
-
-    [StepDefinition(@"the library detail primary email is ""(.*)""")]
-    public async Task TheLibraryDetailPrimaryEmailIs(string email)
-    {
-        var emailUT = await _libraryDetailPage.GetPrimaryEmailAsync();
-        email.Should().Be(email);
-    }    
-
-    [StepDefinition(@"we see a healthy library detail screen")]
-    public void WeSeeAHealthyLibraryDetailScreen()
-    {
+        // here we pull from the testing data out we put into the scenario context and use that to drive the assertions
+        var libraryDetail = _scenarioContext.Get<LibraryViewModel>(libraryName);
         
-    }    
-    
+        (await _libraryDetailPage.GetMailingAddressAsync()).Should().Be(libraryDetail.MailingAddress?.ToString());
+        (await _libraryDetailPage.GetPrimaryPhoneAsync()).Should().Be(libraryDetail.PrimaryPhone?.ToString());
+        (await _libraryDetailPage.GetPrimaryEmailAsync()).Should().Be(libraryDetail.PrimaryEmail?.ToString());
+        (await _libraryDetailPage.GetNotesAsync()).Should().Be(libraryDetail.Notes);
+        
+        (await _libraryDetailPage.GetOpenTimeAsync())?.ToString("hh:mm tt").Should().Be(libraryDetail.OpenTimeShortFormat);
+        (await _libraryDetailPage.GetCloseTimeAsync())?.ToString("hh:mm tt").Should().Be(libraryDetail.CloseTimeShortFormat);
+        
+        (await _libraryDetailPage.GetLibraryNameAsync()).Should().Be(libraryDetail.Name);
+                
+        var pageValues = await _libraryDetailPage.GetAsViewModelAsync();
+        
+        pageValues
+           .Should()
+           .BeEquivalentTo(libraryDetail,
+               options => options.Excluding((IMemberInfo x) =>
+                   x.Path.EndsWith("Id") ||
+                   x.Path.EndsWith("OpenTime") ||
+                   x.Path.EndsWith("CloseTime")
+                   ));
+    }
 
 }

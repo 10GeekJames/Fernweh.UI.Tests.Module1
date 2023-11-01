@@ -89,19 +89,22 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.BookDetail
             this.TestTearDown();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="I can see the book details")]
+        [Xunit.SkippableTheoryAttribute(DisplayName="I see the book details using inline table data with a little more focus on pageob" +
+            "jectmodel helping providing quality check logic")]
         [Xunit.TraitAttribute("FeatureTitle", "Book Detail Experience")]
-        [Xunit.TraitAttribute("Description", "I can see the book details")]
+        [Xunit.TraitAttribute("Description", "I see the book details using inline table data with a little more focus on pageob" +
+            "jectmodel helping providing quality check logic")]
         [Xunit.InlineDataAttribute("978-0-00-000000-6", new string[0])]
         [Xunit.InlineDataAttribute("978-0-00-000000-7", new string[0])]
         [Xunit.InlineDataAttribute("978-0-00-000000-8", new string[0])]
         [Xunit.InlineDataAttribute("978-0-00-000000-9", new string[0])]
-        public void ICanSeeTheBookDetails(string isbn, string[] exampleTags)
+        public void ISeeTheBookDetailsUsingInlineTableDataWithALittleMoreFocusOnPageobjectmodelHelpingProvidingQualityCheckLogic(string isbn, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("isbn", isbn);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the book details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I see the book details using inline table data with a little more focus on pageob" +
+                    "jectmodel helping providing quality check logic", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -116,7 +119,43 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.BookDetail
         testRunner.Given(string.Format("I navigate to book by isbn \"{0}\"", isbn), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
-        testRunner.Then(string.Format("I can see the book details for \"{0}\"", isbn), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then(string.Format("I see the book details for \"{0}\"", isbn), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableTheoryAttribute(DisplayName="I see the book details using inline table data with assertions in step bindings p" +
+            "roviding quality check logic")]
+        [Xunit.TraitAttribute("FeatureTitle", "Book Detail Experience")]
+        [Xunit.TraitAttribute("Description", "I see the book details using inline table data with assertions in step bindings p" +
+            "roviding quality check logic")]
+        [Xunit.InlineDataAttribute("978-0-00-000000-6", new string[0])]
+        [Xunit.InlineDataAttribute("978-0-00-000000-7", new string[0])]
+        [Xunit.InlineDataAttribute("978-0-00-000000-8", new string[0])]
+        [Xunit.InlineDataAttribute("978-0-00-000000-9", new string[0])]
+        public void ISeeTheBookDetailsUsingInlineTableDataWithAssertionsInStepBindingsProvidingQualityCheckLogic(string isbn, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("isbn", isbn);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I see the book details using inline table data with assertions in step bindings p" +
+                    "roviding quality check logic", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 17
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 18
+        testRunner.Given(string.Format("I navigate to book by isbn \"{0}\"", isbn), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 19
+        testRunner.Then(string.Format("I see the book details with feature file providing quality check logic \"{0}\"", isbn), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

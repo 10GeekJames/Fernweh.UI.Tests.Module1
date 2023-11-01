@@ -13,5 +13,6 @@ if NOT "%2%" == "" (
 )
 
 @echo on
+dotnet build
 dotnet test --filter %filter% -e env=%env%
 

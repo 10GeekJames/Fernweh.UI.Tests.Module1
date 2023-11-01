@@ -11,13 +11,13 @@ public class FernwehHomeSteps : Steps
     }
 
     [StepDefinition(@"I navigate to the fernweh home website")]
-    public async Task WeNavigateToTheFernwehHomePage()
+    public async Task INavigateToTheFernwehHomePage()
     {
         await _fernwehHomePage.GotoAsync();
     }
 
     [StepDefinition(@"I am on the fernweh home page")]
-    public async Task WeAreOnTheFernwehHomePage()
+    public async Task IAmOnTheFernwehHomePage()
     {
         (await _fernwehHomePage.IsOnPageAsync()).Should().BeTrue();
     }   

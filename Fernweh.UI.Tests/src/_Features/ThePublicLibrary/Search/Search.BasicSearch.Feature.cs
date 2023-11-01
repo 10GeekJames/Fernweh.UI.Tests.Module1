@@ -89,7 +89,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
 #line 7
     #line hidden
 #line 8
-        testRunner.Given("we navigate to the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("I navigate to the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -127,13 +127,13 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.Search
     this.FeatureBackground();
 #line hidden
 #line 11
-        testRunner.Given(string.Format("we search for \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given(string.Format("I search for \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 12
         testRunner.And(string.Format("the search values are \"{0}\", \"{1}\", \"{2}\"", isbnValue, authorValue, titleValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-        testRunner.When("we submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When("I submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
         testRunner.Then("I am on the search result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

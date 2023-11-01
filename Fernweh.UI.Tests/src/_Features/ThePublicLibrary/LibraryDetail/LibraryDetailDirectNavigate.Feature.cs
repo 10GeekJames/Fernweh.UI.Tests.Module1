@@ -112,7 +112,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
             {
                 this.ScenarioStart();
 #line 8
-        testRunner.Given(string.Format("we direct navigate to \"{0}\" detail page", libraryDataKey), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given(string.Format("I direct navigate to \"{0}\" detail page", libraryDataKey), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
         testRunner.And(string.Format("the library detail name is \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

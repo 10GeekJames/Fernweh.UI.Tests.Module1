@@ -10,26 +10,26 @@ public class SearchSteps : Steps
         _searchPage = searchPage;
     }
 
-    [StepDefinition(@"we navigate to the search page")]
-    public async Task WeNavigateToTheSearchPage()
+    [StepDefinition(@"I navigate to the search page")]
+    public async Task INavigateToTheSearchPage()
     {
         await _searchPage.GotoAsync();
         (await _searchPage.IsOnPageAsync()).Should().BeTrue();
     }
 
-    [StepDefinition(@"we are on the search page")]
-    public async Task WeAreOnTheSearchPage()
+    [StepDefinition(@"I am on the search page")]
+    public async Task IAmOnTheSearchPage()
     {
         (await _searchPage.IsOnPageAsync()).Should().BeTrue();
     }
 
-    [StepDefinition(@"we search for ""(.*)"", ""(.*)"", ""(.*)""")]
+    [StepDefinition(@"I search for ""(.*)"", ""(.*)"", ""(.*)""")]
     public async Task WeSearchFor(string isbnValue, string authorValue, string titleValue)
     {
         await _searchPage.SetValuesAsync(isbnValue, authorValue, titleValue);
     }
     
-    [StepDefinition(@"we auto search for ""(.*)"", ""(.*)"", ""(.*)""")]
+    [StepDefinition(@"I auto search for ""(.*)"", ""(.*)"", ""(.*)""")]
     public async Task WeAutoSearchFor(string isbnValue, string authorValue, string titleValue)
     {
         await _searchPage.SetValuesAsync(isbnValue, authorValue, titleValue);
@@ -44,13 +44,13 @@ public class SearchSteps : Steps
         (await _searchPage.GetTitleValueAsync()).Should().Be(titleValue);
     }
     
-    [StepDefinition(@"we see a search error message")]
+    [StepDefinition(@"I see a search error message")]
     public async Task WeSeeASearchErrorMessage()
     {
         (await _searchPage.GetErrorMessageAsync()).Should().NotBeNull();
     }
 
-    [StepDefinition(@"we submit the search")]
+    [StepDefinition(@"I submit the search")]
     public async Task WhenWeSubmitTheSearch()
     {
         await _searchPage.SubmitSearchAsync();

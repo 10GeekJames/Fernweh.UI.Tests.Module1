@@ -37,8 +37,24 @@ public static class LibraryTestData
 
     static LibraryTestData()
     {
-        FirstStreetLibrary = new LibraryViewModel() { Id = FirstStreetLibraryId, Name = FirstStreetLibraryName, MailingAddress = FirstStreetLibraryAddress, Notes = FirstStreetLibraryNotes };
-        SecondStreetLibrary = new LibraryViewModel() { Id = SecondStreetLibraryId, Name = SecondStreetLibraryName, MailingAddress = SecondStreetLibraryAddress, Notes = SecondStreetLibraryNotes };
+        FirstStreetLibrary = new LibraryViewModel()
+        {
+            Id = FirstStreetLibraryId,
+            Name = FirstStreetLibraryName,
+            MailingAddress = FirstStreetLibraryAddress,
+            Notes = FirstStreetLibraryNotes,
+            OpenTime = FirstStreetLibraryOpenTime,
+            CloseTime = FirstStreetLibraryCloseTime
+        };
+        SecondStreetLibrary = new LibraryViewModel()
+        {
+            Id = SecondStreetLibraryId,
+            Name = SecondStreetLibraryName,
+            MailingAddress = SecondStreetLibraryAddress,
+            Notes = SecondStreetLibraryNotes,
+            OpenTime = SecondStreetLibraryOpenTime,
+            CloseTime = SecondStreetLibraryCloseTime
+        };
 
         AllLibraries = new List<LibraryViewModel> {
             FirstStreetLibrary,

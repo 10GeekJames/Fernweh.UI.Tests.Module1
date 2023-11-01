@@ -89,14 +89,14 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="I can see the advertisment on the library detail page")]
+        [Xunit.SkippableFactAttribute(DisplayName="I see the advertisment on the library detail page")]
         [Xunit.TraitAttribute("FeatureTitle", "Library Detail Experience")]
-        [Xunit.TraitAttribute("Description", "I can see the advertisment on the library detail page")]
-        public void ICanSeeTheAdvertismentOnTheLibraryDetailPage()
+        [Xunit.TraitAttribute("Description", "I see the advertisment on the library detail page")]
+        public void ISeeTheAdvertismentOnTheLibraryDetailPage()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the advertisment on the library detail page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I see the advertisment on the library detail page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -108,7 +108,7 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
             {
                 this.ScenarioStart();
 #line 8
-        testRunner.Given("we direct navigate to \"Library1\" detail page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("I direct navigate to \"Library1\" detail page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
         testRunner.Then("the library detail advertisment content is \"Sponsor the Library, get some exposur" +
@@ -118,23 +118,18 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="I can see the library detail")]
+        [Xunit.SkippableTheoryAttribute(DisplayName="I see all of the library details")]
         [Xunit.TraitAttribute("FeatureTitle", "Library Detail Experience")]
-        [Xunit.TraitAttribute("Description", "I can see the library detail")]
-        [Xunit.InlineDataAttribute("Library1", "First Street Library", "7AM", "9PM", "This is the first street library", "", "", new string[0])]
-        [Xunit.InlineDataAttribute("Library2", "Second Street Library", "7AM", "9PM", "This is the second street library", "", "", new string[0])]
-        public void ICanSeeTheLibraryDetail(string libraryDataKey, string name, string openHours, string closeHours, string notes, string primaryPhone, string primaryEmail, string[] exampleTags)
+        [Xunit.TraitAttribute("Description", "I see all of the library details")]
+        [Xunit.InlineDataAttribute("Library1", "First Street Library", new string[0])]
+        [Xunit.InlineDataAttribute("Library2", "Second Street Library", new string[0])]
+        public void ISeeAllOfTheLibraryDetails(string libraryDataKey, string libraryName, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("library data key", libraryDataKey);
-            argumentsOfScenario.Add("name", name);
-            argumentsOfScenario.Add("open hours", openHours);
-            argumentsOfScenario.Add("close hours", closeHours);
-            argumentsOfScenario.Add("notes", notes);
-            argumentsOfScenario.Add("primary phone", primaryPhone);
-            argumentsOfScenario.Add("primary email", primaryEmail);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the library detail", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("library name", libraryName);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I see all of the library details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -146,22 +141,10 @@ namespace Fernweh.UITests._Features.ThePublicLibrary.LibraryDetail
             {
                 this.ScenarioStart();
 #line 12
-        testRunner.Given(string.Format("we direct navigate to \"{0}\" detail page", libraryDataKey), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given(string.Format("I direct navigate to \"{0}\" detail page", libraryDataKey), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
-        testRunner.Then(string.Format("the library detail open hours is \"{0}\"", openHours), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 14
-        testRunner.And(string.Format("the library detail close hours is \"{0}\"", closeHours), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 15
-        testRunner.And(string.Format("the library detail notes is \"{0}\"", notes), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 16
-        testRunner.And(string.Format("the library detail primary phone is \"{0}\"", primaryPhone), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 17
-        testRunner.And(string.Format("the library detail primary email is \"{0}\"", primaryEmail), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.Then(string.Format("I see the library has the correct details for \"{0}\"", libraryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

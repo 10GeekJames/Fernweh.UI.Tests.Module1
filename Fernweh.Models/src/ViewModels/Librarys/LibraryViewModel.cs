@@ -2,9 +2,9 @@ namespace Fernweh.Models.ViewModels;
 public partial class LibraryViewModel : BaseViewModel
 {
      public string Name { get; set; } = String.Empty;
-     public PhysicalAddressVOViewModel? MailingAddress { get; set; } = null;
-     public DigitalAddressVOViewModel? PrimaryPhone { get; set; } = null;
-     public DigitalAddressVOViewModel? PrimaryEmail { get; set; } = null;
+     public PhysicalAddressVOViewModel? MailingAddress { get; set; } = new PhysicalAddressVOViewModel();
+     public DigitalAddressVOViewModel? PrimaryPhone { get; set; } = new DigitalAddressVOViewModel();
+     public DigitalAddressVOViewModel? PrimaryEmail { get; set; } = new DigitalAddressVOViewModel();
      public DateTime? OpenTime { get; set; } = null;
      public DateTime? CloseTime { get; set; } = null;
      public string Notes { get; set; } = "";
