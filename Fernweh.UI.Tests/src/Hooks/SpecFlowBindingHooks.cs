@@ -17,7 +17,7 @@ public class SpecFlowBindingHooks
     public async Task SetupWebDriver(ScenarioContext scenarioContext)
     {
         var builder = new ConfigurationBuilder();
-        var env = Environment.GetEnvironmentVariable("env") ?? "dev";
+        var env = Environment.GetEnvironmentVariable("env") ?? "qa";
         var appConfigFile = $"./Configurations/appsettings.{env}.json";
 
         builder
@@ -46,7 +46,7 @@ public class SpecFlowBindingHooks
         this._objectContainer.RegisterInstanceAs<IBrowserContext>(context);
 
         var page = await context.NewPageAsync();
-        page.SetDefaultTimeout(60000);
+        page.SetDefaultTimeout(30000);
 
         this._objectContainer.RegisterInstanceAs<IPlaywright>(playwright);
         this._objectContainer.RegisterInstanceAs<IBrowser>(browser);

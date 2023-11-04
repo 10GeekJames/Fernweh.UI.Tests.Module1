@@ -7,11 +7,11 @@ public class SearchPage : BasePageObject
     private readonly static string _pagePath = "/thepubliclibrary/search";
     
     private ILocator _searchIsbnLocator => Page.Locator("#search-isbn-value");
+    private ILocator _errorIsbnMessageLocator => Page.Locator("#isbn-search, .mud-input-helper-text.mud-input-error");
     private ILocator _searchTitleLocator => Page.Locator("#search-title-value");
     private ILocator _submitSearchLocator => Page.Locator("#search-submit");
     private ILocator _errorMessageLocator => Page.Locator("#search-error-message");
-    private ILocator _errorIsbnMessageLocator => Page.Locator("#isbn-search, .mud-input-helper-text.mud-input-error");
-
+    
     public SearchPage(IPage page, AppConfig appConfig) : base(page, appConfig, _pagePath) { }
     
     public async Task<bool> IsOnPageAsync()
