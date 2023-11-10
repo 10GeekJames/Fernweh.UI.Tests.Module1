@@ -3,7 +3,7 @@ namespace Fernweh.UITests.Features.ThePublicLibrary.LibraryDetail;
 
 public class LibraryListPage : BasePageObject
 {
-    public readonly static string _pagePath = "/thepubliclibrary/alllibrarys"; // www.fernwehs.com/thepubliclibrary/alllibrarys
+    public readonly static string _pagePath = "/thepubliclibrary/alllibrarys"; // https://fernwehs.com/thepubliclibrary/alllibrarys
 
     private ILocator _libraryListTitleLocator => Page.Locator("#all-librarys-static-table-header");
     private ILocator _libraryListLocator => Page.Locator("#all-librarys-static-table");    
